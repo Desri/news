@@ -1,0 +1,23 @@
+.contact {
+  .box-info {
+    .card {
+      .card-body {
+        background-color: $bg-grey;
+        h3 {
+          color: #2e2e2e;
+          font-size: 18px;
+          font-weight: 600;
+        }
+        p {
+          margin-bottom: 2px;
+          a {
+            color: #212529;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

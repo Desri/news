@@ -1,0 +1,20 @@
+.advertise {
+	.heading-advertise {
+		padding: 4.5rem 0px;
+		background: $bg-grey;
+	}
+	form {
+		.select-budget {
+			position: relative;
+			select {
+				background: $color-white;
+			}
+			svg {
+				position: absolute;
+				top: 10px;
+			    right: 10px;
+			    color: #5d5d5d;
+			}
+		}
+	}
+}

@@ -1,0 +1,128 @@
+#form-login {
+  .modal-dialog {
+    // height: 93%;
+    margin-bottom: 0px;
+    @media screen and (min-width: 576px) {
+      max-width: 470px;
+    }
+    .modal-content {
+      height: 100%;
+      max-height: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px 0 rgba(0,0,0,.3);
+      header {
+        padding: 45px 55px;
+      }
+      .modal-body {
+        padding: 45px 55px;
+        p.short-desc {
+          color: #3f3e3f;
+          font-size: 16px;
+          line-height: 22px;
+          text-align: center;
+          margin-bottom: 22px;
+          letter-spacing: .17px;
+        }
+        p.login-with {
+          font-size: 14px;
+          color: $color-grey;
+        }
+        .login-sosmed {
+          .btnFacebook {
+            width: 48%;
+            float: left;
+            height: 40px;
+            cursor: pointer;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            border-radius: 5px;
+            background: $color-white;
+            box-shadow: 0 2px 10px 0 rgba(0,0,0,.08);
+          }
+          .btnGoogle {
+            width: 48%;
+            height: 40px;
+            cursor: pointer;
+            margin-left: auto;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            border-radius: 5px;
+            align-items: center;
+            background: $color-white;
+            box-shadow: 0 2px 10px 0 rgba(0,0,0,.08);
+          }
+          span {
+            font-size: 16px;
+            line-height: 22px;
+            margin-left: 10px;
+            color: $color-grey;
+            letter-spacing: .2px;
+          }
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+        .separator {
+          position: relative;
+          &:before, &:after {
+            border-bottom: .5px solid #d9d8d8;
+            content: " ";
+            display: block;
+            width: calc(50% - 15px);
+            position: absolute;
+            top: 50%;
+            height: 1px;
+          }
+          &:before {
+            left: 0;
+          }
+          &:after {
+            right: 0;
+          }
+          span {
+            color: #555555;
+            font-size: 14px;
+            letter-spacing: .2px;
+          }
+        }
+        form {
+          fieldset {
+            position: relative;
+            input {
+              border-top: 0px;
+              border-left: 0px;
+              border-right: 0px;
+              padding-left: 5px;
+              border-radius: 0px;
+              border-bottom: 1px solid #d9d8d8;
+              &:focus {
+                box-shadow: none;
+              }
+            }
+            svg {
+              position: absolute;
+              right: 5px;
+              top: 12px;
+              cursor: pointer;
+            }
+          }
+          p {
+            font-size: 14px;
+            color: $color-grey;
+            a {
+              color: $bg-button;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+footer {
+  background: #f56565;
+  ul {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    li {
+      list-style: none;
+      a {
+        color: $color-white;
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+  }
+  .logo_footer {
+    img {
+      width: 85px;
+    }
+  }
+  .list_sosmed {
+    ul {
+      margin: auto;
+      width: 90px;
+      li {
+        float: left;
+        margin: 0px 7px;
+        a {
+          img {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+  p.copyright {
+    padding: 0px 35px;
+  }
+  .menu_footer {
+    width: 50%;
+    float: left;
+  }
+  .download_apps {
+    @media screen and (max-width: 600px) {
+      text-align: center;
+    }
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: $color-white;
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+    a {
+      img {
+        width: 115px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

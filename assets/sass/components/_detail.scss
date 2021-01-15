@@ -1,0 +1,36 @@
+.artikel-detail {
+	h1 {
+		color: #2e2e2e;
+		font-size: 38px;
+	    font-weight: 600;
+	}
+	.box-author {
+		overflow: hidden;
+		.media {
+			.media-aside {
+				img {
+					width: 50px;
+					border-radius: 50%;
+				    border: 1px solid #e9e9e9;
+				}
+			}
+			.media-body {
+				padding-top: 14px;
+				p.lead {
+					color: #646464;
+					font-size: 15px;
+				    font-family: sans-serif;
+					span {
+						color: #f56565;
+					}
+				}
+			}
+		}
+		
+	}
+  	.content-detail {
+    	img {
+      		width: 100%;
+    	}
+  	}
+}
