@@ -7,7 +7,7 @@
             <b-breadcrumb-item href="/">
               Home
             </b-breadcrumb-item>
-            <b-breadcrumb-item :href="`/category/${fetchedDetail._embedded[`wp:term`][0][0].slug}`">{{fetchedDetail._embedded["wp:term"][0][0].name}}</b-breadcrumb-item>
+            <b-breadcrumb-item :href="`/category/${fetchedDetail._embedded[`wp:term`][0][0].id}`">{{fetchedDetail._embedded["wp:term"][0][0].name}}</b-breadcrumb-item>
             <b-breadcrumb-item active>{{fetchedDetail.title.rendered}}</b-breadcrumb-item>
           </b-breadcrumb>
         </b-col>
@@ -63,11 +63,7 @@
       this.$store.dispatch('artikel/GET_DETAIL_ARTIKEL', slug)
     },
     methods: {
-      stripHtml: function(html){
-        var tmp = document.createElement("DIV");
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || "";
-      },
+      
     }
   }
 </script>

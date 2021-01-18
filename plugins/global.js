@@ -15,6 +15,11 @@ Vue.mixin({
       }
       return true;
     },
+    stripHtml(html){
+      var tmp = document.createElement("DIV");
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || "";
+    },
     formatDate(date) {
       var d = new Date(date),
         month = '' + (d.getMonth() + 1),

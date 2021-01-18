@@ -1,7 +1,7 @@
 export const state = () => ({
-    artikels: {},
-    detail: {},
-    category: {},
+  artikels: {},
+  detail: {},
+  category: {},
 });
 
 export const getters =  {
@@ -31,7 +31,9 @@ export const mutations = {
 export const actions =  {
   async GET_ARTIKELS({ commit }) {
     try {
-      const response = await this.$axios.$get(`api/wp/v2/posts?_embed`)
+      const response = await this.$axios.$get(`/api/wp/v2/posts?_embed`,{ 
+        headers: { 'Access-Control-Allow-Origin': '*' } 
+      })
       commit('SET_ARTIKELS', response)
       //console.log(response[0]._embedded.["wp:term"][0][0].name)
     } catch (error) {
@@ -48,7 +50,7 @@ export const actions =  {
   },
   async GET_CATEGORY({ commit }, slug) {
     try {
-      const response = await this.$axios.$get(`api/wp/v2/posts?category=${slug}&_embed`)
+      const response = await this.$axios.$get(`api/wp/v2/posts?categories=${slug}&_embed`)
       commit('SET_CATEGORY', response)
     } catch (error) {
       throw error

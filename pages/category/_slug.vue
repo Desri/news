@@ -3,15 +3,15 @@
     <b-container>
       <b-row>
         <b-col cols="12" sm="8" md="8" lg="8">
-          <b-breadcrumb>
+          <b-breadcrumb v-if="fetchedCategory[`0`]">
             <b-breadcrumb-item href="/">
               Home
             </b-breadcrumb-item>
-            <b-breadcrumb-item active>dery</b-breadcrumb-item>
+            <b-breadcrumb-item active>{{fetchedCategory[0]._embedded["wp:term"][0][0].name}}</b-breadcrumb-item>
           </b-breadcrumb>
         </b-col>
       </b-row>
-      <div class="recomendation my-4">
+      <div class="recomendation mt-4 mb-5">
         <div class="heading-article">
           <div class="heading-left float-left">
             <span class="baging"></span>
@@ -64,26 +64,32 @@
       <b-row>
         <b-col cols="12" sm="8" md="8" lg="8">
           <div class="new-article">
+            <div class="heading-article">
+              <div class="heading-left float-left">
+                <span class="baging"></span>
+                <h3 v-if="fetchedCategory[`0`]">Terbaru di {{fetchedCategory[0]._embedded["wp:term"][0][0].name}}</h3>
+              </div>
+            </div>
             <div class="list-article">
               <ul class="list-unstyled">
-                <li class="media py-3">
-                  <nuxt-link to="/#">
+                <li class="media py-3" v-for="data in fetchedCategory" :key="data.id">
+                  <nuxt-link :to="`/read/${data.slug}`">
                     <div class="box-label">
-                        <span class="label-categories">
-                          Sains
-                        </span>
+                      <span class="label-categories">
+                        {{data._embedded["wp:term"][0][0].name}}
+                      </span>
                     </div>
-                    <img src="@/assets/img/recomendation4.jpg" class="mr-4">
+                    <img :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
                   </nuxt-link>
                   <div class="media-body">
-                    <nuxt-link to="/#">
-                      <h5 class="mt-0">Title</h5>
+                    <nuxt-link :to="`/read/${data.slug}`">
+                      <h5 class="mt-0">{{data.title.rendered}}</h5>
                     </nuxt-link>
-                    <p>Content</p>
+                    <p>{{stripHtml(data.excerpt.rendered)}}</p>
                     <div class="box-user">
                       <div class="box-avatar-creator">
                         <nuxt-link to="/#">
-                          <img src="@/assets/img/avatar14.jpg" alt="Avatar"><span>Dery Indochat</span>
+                          <img :src="data._embedded.author[0].avatar_urls[48]" alt="Avatar" /><span>{{data._embedded.author[0].name}}</span>
                         </nuxt-link>
                       </div>
                     </div>
@@ -123,14 +129,9 @@
     async mounted() {
       let slug = this.$route.params.slug;
       await this.$store.dispatch('artikel/GET_CATEGORY', slug)
-      console.log(this.fetchedCategory)
     },
     methods: {
-      stripHtml: function(html){
-        var tmp = document.createElement("DIV");
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || "";
-      },
+      
     }
   }
 </script>

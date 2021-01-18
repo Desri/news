@@ -1,5 +1,5 @@
 export default {
-  target: 'static',
+  target: 'server',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'indochat-news',
@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    // '~/plugins/global',
+    '~/plugins/global',
     { src: '@/plugins/vue-slick-carousel.js'},
     { src: '@/plugins/axios'},
     { src: '@/plugins/BootstrapVue'},
@@ -67,25 +67,24 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'https://news-rest.telunjukatas.tech/wp-json/',
+    // baseURL: 'https://news-rest.telunjukatas.tech/wp-json/',
     proxy:true,
     proxyHeaders: false,
     credentials: false,
   },
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.BROWSER_BASE_URL
-    }
-  },
+  // publicRuntimeConfig: {
+  //   axios: {
+  //     browserBaseURL: process.env.BROWSER_BASE_URL
+  //   }
+  // },
 
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.BASE_URL
-    }
-  },
+  // privateRuntimeConfig: {
+  //   axios: {
+  //     baseURL: process.env.BASE_URL
+  //   }
+  // },
   proxy: {
     '/api/': { target: 'https://news-rest.telunjukatas.tech/wp-json/', pathRewrite: {'^/api/': ''} }
-    
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

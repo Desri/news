@@ -84,11 +84,7 @@
       await this.$store.dispatch('artikel/GET_ARTIKELS');
     },
     methods: {
-      stripHtml: function(html){
-        var tmp = document.createElement("DIV");
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || "";
-      },
+      
     }
   }
 </script>

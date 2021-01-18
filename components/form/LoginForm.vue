@@ -49,8 +49,8 @@
     data () {
       return {
         form: {
-          username: 'deryindochat',
-          password: 'Deryindochat1602!!',
+          username: '',
+          password: '',
         },
         passwordVisible: false,
       }

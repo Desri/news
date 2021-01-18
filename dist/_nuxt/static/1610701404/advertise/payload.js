@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/advertise", {data:[{}],fetch:[],mutations:[]});
