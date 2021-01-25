@@ -82,6 +82,11 @@
     components : {
 
     },
+    data() {
+      return {
+        
+      }
+    },
     computed: {
       
     },
@@ -91,6 +96,7 @@
     methods: {
       
     },
+
   }
 </script>
 

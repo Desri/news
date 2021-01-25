@@ -3,16 +3,20 @@
     <Header />
     <Nuxt />
     <Footer />
+    <ScrollTop />
   </div>
 </template>
 
 <script>
   import Header from '~/components/header/Header';
   import Footer from '~/components/footer';
+  import ScrollTop from '~/components/scroll-to-top';
+  
   export default {
     components : {
       Header,
-      Footer
+      Footer,
+      ScrollTop
     },
     data () {
       return {
