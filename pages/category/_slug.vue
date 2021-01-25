@@ -128,7 +128,7 @@
     },
     async mounted() {
       let slug = this.$route.params.slug;
-      await this.$store.dispatch('artikel/GET_CATEGORY', slug)
+      await this.$store.dispatch('artikel/fetchCategory', slug)
     },
     methods: {
       

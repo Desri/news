@@ -15,7 +15,7 @@
               </ul>
             </div>
             <div class="top-date float-right">
-              <p class="mb-0 text-white">Jumat, 8 Januari 2021</p>
+              <p class="mb-0 text-white">{{ timestamp }} </p>
             </div>
           </b-col>
         </b-row>
@@ -36,7 +36,7 @@
     },
     data () {
       return {
-        
+        timestamp: ""
       }
     },
     computed: {
@@ -45,8 +45,21 @@
     mounted() {
       
     },
+    created() {
+      setInterval(this.getNow, 1000);
+    },
     methods: {
-      
+      getNow: function() {
+        let arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        let arrhari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+        let date = new Date();
+        let hari = date.getDay();
+        let tanggal = date.getDate();
+        let bulan = date.getMonth();
+        let tahun = date.getFullYear();
+        let datetimes = arrhari[hari]+", "+tanggal+" "+arrbulan[bulan]+" "+tahun;
+        this.timestamp = datetimes;
+      }
     },
   }
 </script>

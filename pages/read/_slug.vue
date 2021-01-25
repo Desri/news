@@ -26,6 +26,9 @@
             </div>
             <hr>
             <div class="content-detail">
+              <div class="sticky-share">
+                <sticky-share :data="title"></sticky-share>
+              </div>
               <p v-if="fetchedDetail.content" v-html="fetchedDetail.content.rendered"></p>
             </div>
             <hr>
@@ -42,6 +45,7 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import StickyShare from '~/components/share/StickyShare';
   import SidebarTopikTerkait from '~/components/sidebar/SidebarTopikTerkait';
   import SidebarTerpopuler from '~/components/sidebar/SidebarTerpopuler';
   export default {
@@ -50,7 +54,7 @@
     },
     data () {
       return {
-        
+        title : '',
       }
     },
     computed: {
@@ -58,9 +62,10 @@
         fetchedDetail: 'artikel/detail'
       }),
     },
-    mounted() {
+    async mounted() {
       let slug = this.$route.params.slug;
-      this.$store.dispatch('artikel/GET_DETAIL_ARTIKEL', slug)
+      await this.$store.dispatch('artikel/fetchDetailArtikel', slug)
+      this.title = this.fetchedDetail.title.rendered
     },
     methods: {
       

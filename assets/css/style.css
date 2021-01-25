@@ -421,6 +421,16 @@ footer .download_apps a img {
   border-bottom: 0px;
 }
 
+.not-found svg {
+  color: #dddddd;
+  font-size: 7rem;
+}
+.not-found a {
+  font-weight: 500;
+  color: #f56565;
+  text-decoration: underline;
+}
+
 #form-login .modal-dialog {
   margin-bottom: 0px;
 }
@@ -597,6 +607,46 @@ footer .download_apps a img {
 }
 .artikel-detail .content-detail img {
   width: 100%;
+}
+.artikel-detail .content-detail .sticky-share {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px;
+  float: left;
+  width: fit-content;
+  margin-left: -70px;
+}
+.artikel-detail .content-detail .sticky-share p {
+  color: #000000;
+  margin-bottom: 10px;
+}
+.artikel-detail .content-detail .sticky-share ul {
+  list-style: none;
+  padding-left: 0px;
+  line-height: normal;
+}
+.artikel-detail .content-detail .sticky-share ul li a .sosmed-share {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 100px;
+}
+.artikel-detail .content-detail .sticky-share ul li a .sosmed-share.fb {
+  background: #2361d4;
+}
+.artikel-detail .content-detail .sticky-share ul li a .sosmed-share.tw {
+  background: #48aef5;
+}
+.artikel-detail .content-detail .sticky-share ul li a .sosmed-share.wa {
+  background: #29B200;
+}
+.artikel-detail .content-detail .sticky-share ul li a .sosmed-share svg {
+  color: #ffffff;
+  position: relative;
+  top: -1px;
 }
 
 .advertise .heading-advertise {

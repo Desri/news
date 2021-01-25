@@ -67,24 +67,14 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    // baseURL: 'https://news-rest.telunjukatas.tech/wp-json/',
+    //baseURL: 'https://news-rest.telunjukatas.tech/wp-json',
     proxy:true,
     proxyHeaders: false,
     credentials: false,
   },
-  // publicRuntimeConfig: {
-  //   axios: {
-  //     browserBaseURL: process.env.BROWSER_BASE_URL
-  //   }
-  // },
-
-  // privateRuntimeConfig: {
-  //   axios: {
-  //     baseURL: process.env.BASE_URL
-  //   }
-  // },
+  
   proxy: {
-    '/api/': { target: 'https://news-rest.telunjukatas.tech/wp-json/', pathRewrite: {'^/api/': ''} }
+    '/api/': { target: 'https://news-rest.telunjukatas.tech/wp-json/', pathRewrite: {'^/api/': ''},changeOrigin: true }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

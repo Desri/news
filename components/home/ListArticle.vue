@@ -81,7 +81,7 @@
       }),
     },
     async mounted() {
-      await this.$store.dispatch('artikel/GET_ARTIKELS');
+      await this.$store.dispatch('artikel/fetchArtikels');
     },
     methods: {
       

@@ -13,29 +13,21 @@
             <b-img blank blank-color="#abc" width="64" alt="placeholder"></b-img>
           </template>
           <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="mb-0">
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.
-          </p>
+          <p class="mb-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
         </b-media>
-
         <b-media tag="li" class="my-4">
           <template #aside>
            <b-img blank blank-color="#cba" width="64" alt="placeholder"></b-img>
           </template>
           <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="mb-0">
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus.
-          </p>
+          <p class="mb-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus.</p>
         </b-media>
-
         <b-media tag="li">
           <template #aside>
             <b-img blank blank-color="#bac" width="64" alt="placeholder"></b-img>
           </template>
           <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="mb-0">
-            Cras sit amet nibh libero, in gravida nulla nulla vel.
-          </p>
+          <p class="mb-0">Cras sit amet nibh libero, in gravida nulla nulla vel.</p>
         </b-media>
       </ul>
     </div>

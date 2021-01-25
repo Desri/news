@@ -1,0 +1,11 @@
+.not-found {
+  svg {
+    color: #dddddd;
+    font-size: 7rem;
+  }
+  a {
+    font-weight: 500;
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
