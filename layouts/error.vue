@@ -29,12 +29,12 @@
         
       }
     },
-    computed: {
-      
-    },
     mounted() {
       
-    }
+    },
+    methods: {
+
+    },
   }
 </script>
 

@@ -11,7 +11,6 @@
   import Header from '~/components/header/Header';
   import Footer from '~/components/footer';
   import ScrollTop from '~/components/scroll-to-top';
-  
   export default {
     components : {
       Header,
@@ -25,6 +24,27 @@
           password: 'Deryindochat1602!!',
         },
       }
+    },
+    computed: {
+      connectionStatus() {
+        return this.$nuxt.isOffline
+      },
+    },
+    watch: {
+      connectionStatus(offline) {
+        if (offline) {
+          this.$bvToast.toast('Mohon cek koneksi internet Anda', {
+            id: 'offline',
+            toaster: 'b-toaster-top-center',
+            noCloseButton: true,
+            solid: true,
+            noAutoHide: true,
+            variant: 'danger',
+          })
+        } else {
+          this.$bvToast.hide('offline')
+        }
+      },
     },
     async mounted() {
       if (localStorage.getItem("auth._token.local") === null || localStorage.getItem("auth._token.local") === false) {
@@ -66,34 +86,5 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
 }
 </style>

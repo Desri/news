@@ -111,6 +111,10 @@
 							    padding: 2px 17px;
 							    border-radius: 18px;
 							    background: #dddddd;
+							    @media screen and (max-width: 600px) {
+							    	font-size: 11px;
+							    	padding: 1px 14px 2px 14px;
+							    }
 							}
     					}
     				}
@@ -118,7 +122,8 @@
     					img {
     						width: 190px;
     						@media screen and (max-width: 600px) {
-    							width: 140px;
+    							width: 116px;
+    							height: 99px;
     							margin-right: 15px !important;
     						}
     					}
@@ -128,15 +133,14 @@
     						h5 {
     							color: #1d3557;
 							    font-size: 24px;
-							    font-weight: 700;
+							    font-weight: 600;
 							    @media screen and (max-width: 600px) {
 							    	font-size: 17px;
-								    line-height: 17px;
 								    text-overflow: ellipsis;
 								    display: -webkit-box !important;
-								    -webkit-line-clamp: 2;
+								    -webkit-line-clamp: 3;
 								    -webkit-box-orient: vertical;
-								    height: 36px;
+								    height: 64px;
 								    overflow: hidden;
 							    }
     						}
@@ -149,19 +153,14 @@
 						    line-height: 20px;
 						    margin-bottom: 7px;
 						    text-overflow: ellipsis;
-						    display: -webkit-box !important;
 						    -webkit-line-clamp: 2;
 						    -webkit-box-orient: vertical;
 						    max-height: 40px;
 						    overflow: hidden;
+						    display: -webkit-box !important;
 						    @media screen and (max-width: 600px) {
-    							text-overflow: ellipsis;
-							    display: -webkit-box !important;
-							    -webkit-line-clamp: 2;
-							    -webkit-box-orient: vertical;
-							    height: 41px;
-							    overflow: hidden;
-    						}
+								display: none !important;
+							}
     					}
     					.box-user {
     						overflow: hidden;

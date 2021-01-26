@@ -33,7 +33,7 @@
                     <nuxt-link :to="`/read/${data.slug}`">
                       <h5 class="mt-0">{{data.title.rendered}}</h5>
                     </nuxt-link>
-                    <p>{{stripHtml(data.excerpt.rendered)}}</p>
+                    <p class="d-none d-sm-block">{{stripHtml(data.excerpt.rendered)}}</p>
                     <div class="box-user">
                       <div class="box-avatar-creator">
                         <nuxt-link to="/#">

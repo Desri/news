@@ -32,6 +32,9 @@ img {
 	overflow: hidden;
 	position: relative;
 	margin-bottom: 15px;
+	@media screen and (max-width: 600px) {
+		margin-bottom: 0px;
+    }
 	.heading-left {
 		span {
 			position: absolute;
@@ -51,13 +54,22 @@ img {
 	}
 	.heading-right {
 		margin-bottom: 20px;
+		@media screen and (max-width: 600px) {
+			margin-bottom: 0px;
+	    }
 		p {
 			margin-bottom: 0px;
+			@media screen and (max-width: 600px) {
+				margin-top: -6px;
+		    }
 			a {
 				font-size: 14px;
 			    font-weight: 600;
 			    padding-top: 2px;
 			    color: $color-second;
+			    @media screen and (max-width: 600px) {
+					font-size: 13px;
+			    }
 			    i {
 			    	top: 3px;
 			    	color: #848484;

@@ -61,6 +61,11 @@ img {
   position: relative;
   margin-bottom: 15px;
 }
+@media screen and (max-width: 600px) {
+  .heading-article {
+    margin-bottom: 0px;
+  }
+}
 .heading-article .heading-left span {
   position: absolute;
   top: 0;
@@ -79,14 +84,29 @@ img {
 .heading-article .heading-right {
   margin-bottom: 20px;
 }
+@media screen and (max-width: 600px) {
+  .heading-article .heading-right {
+    margin-bottom: 0px;
+  }
+}
 .heading-article .heading-right p {
   margin-bottom: 0px;
+}
+@media screen and (max-width: 600px) {
+  .heading-article .heading-right p {
+    margin-top: -6px;
+  }
 }
 .heading-article .heading-right p a {
   font-size: 14px;
   font-weight: 600;
   padding-top: 2px;
   color: #3ca5dd;
+}
+@media screen and (max-width: 600px) {
+  .heading-article .heading-right p a {
+    font-size: 13px;
+  }
 }
 .heading-article .heading-right p a i {
   top: 3px;
@@ -684,6 +704,17 @@ footer .download_apps a img {
   position: relative;
   top: -1px;
 }
+@media screen and (max-width: 600px) {
+  .artikel-detail h1 {
+    font-size: 27px;
+    font-weight: 700;
+  }
+  .artikel-detail p figure img {
+    height: 220px;
+    max-height: 100%;
+    border-radius: 0px;
+  }
+}
 
 .advertise .heading-advertise {
   padding: 4.5rem 0px;
@@ -811,29 +842,35 @@ footer .download_apps a img {
   border-radius: 18px;
   background: #dddddd;
 }
+@media screen and (max-width: 600px) {
+  #main .new-article .list-article ul li.media .box-label span {
+    font-size: 11px;
+    padding: 1px 14px 2px 14px;
+  }
+}
 #main .new-article .list-article ul li a img {
   width: 190px;
 }
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li a img {
-    width: 140px;
+    width: 116px;
+    height: 99px;
     margin-right: 15px !important;
   }
 }
 #main .new-article .list-article ul li .media-body a h5 {
   color: #1d3557;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
 }
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li .media-body a h5 {
     font-size: 17px;
-    line-height: 17px;
     text-overflow: ellipsis;
     display: -webkit-box !important;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    height: 36px;
+    height: 64px;
     overflow: hidden;
   }
 }
@@ -845,20 +882,15 @@ footer .download_apps a img {
   line-height: 20px;
   margin-bottom: 7px;
   text-overflow: ellipsis;
-  display: -webkit-box !important;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   max-height: 40px;
   overflow: hidden;
+  display: -webkit-box !important;
 }
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li .media-body p {
-    text-overflow: ellipsis;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    height: 41px;
-    overflow: hidden;
+    display: none !important;
   }
 }
 #main .new-article .list-article ul li .media-body .box-user {
