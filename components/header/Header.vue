@@ -22,17 +22,14 @@
       </b-container>
     </div>
     <header-menu></header-menu>
-    <top-topic></top-topic>
   </header>
 </template>
 
 <script>
   import HeaderMenu from '~/components/header/HeaderMenu';
-  import TopTopic from '~/components/header/TopTopic';
   export default {
     components : {
-      HeaderMenu,
-      TopTopic
+      HeaderMenu
     },
     data () {
       return {

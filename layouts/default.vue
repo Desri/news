@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
+    <Nuxt class="ter" />
     <Footer />
     <ScrollTop />
   </div>
@@ -20,8 +20,8 @@
     data () {
       return {
         form: {
-          username: 'deryindochat',
-          password: 'Deryindochat1602!!',
+          username: 'dery',
+          password: 'NGebbEM9dEGx60DqBJagUjyc',
         },
       }
     },

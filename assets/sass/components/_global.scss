@@ -27,6 +27,11 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   	background: #cacaca; 
 }
+.activeMenu {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
 /* Heading Article */
 .heading-article {
 	overflow: hidden;

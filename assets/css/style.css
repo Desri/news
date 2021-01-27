@@ -55,6 +55,12 @@ img {
   background: #cacaca;
 }
 
+.activeMenu {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 /* Heading Article */
 .heading-article {
   overflow: hidden;
@@ -196,20 +202,20 @@ img {
   background: #ffffff;
 }
 
-#navbarPrimary {
+header #navbarPrimary {
   border-bottom: 1px solid #dddddd;
 }
-#navbarPrimary .navbar-toggler {
+header #navbarPrimary .navbar-toggler {
   border: 0px;
 }
-#navbarPrimary .navbar-toggler:focus {
+header #navbarPrimary .navbar-toggler:focus {
   outline: 0px;
 }
-#navbarPrimary .navbar-toggler i {
+header #navbarPrimary .navbar-toggler i {
   color: #ffffff;
   font-size: 24px;
 }
-#navbarPrimary .colInq .btnInq {
+header #navbarPrimary .colInq .btnInq {
   width: 150px;
   height: 34px;
   margin: auto;
@@ -218,51 +224,120 @@ img {
   background: #61ce70;
   border-radius: 20px;
 }
-#navbarPrimary .colInq .btnInq:hover {
+header #navbarPrimary .colInq .btnInq:hover {
   color: #0076ff;
   background: #ffffff;
 }
-#navbarPrimary .colInq a {
+header #navbarPrimary .colInq a {
   display: block;
   color: #ffffff;
   font-size: 15px;
 }
-#navbarPrimary .dropdown-toggle i {
+header #navbarPrimary .dropdown-toggle i {
   left: 2px;
   font-weight: 600;
   position: relative;
 }
-#navbarPrimary .navbar-collapse {
+header #navbarPrimary .navbar-collapse {
   width: 100%;
 }
-#navbarPrimary .navbar-collapse ul li a {
+header #navbarPrimary .navbar-collapse ul li a {
   color: #1d3557;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
 }
-#navbarPrimary .navbar-collapse ul li a:after {
+header #navbarPrimary .navbar-collapse ul li a:after {
   display: none;
 }
-#navbarPrimary .navbar-brand {
+header #navbarPrimary .navbar-brand {
   color: #1d3557;
   font-size: 24px;
   font-weight: 500;
   position: relative;
 }
-#navbarPrimary .navbar-brand img {
+header #navbarPrimary .navbar-brand img {
   width: 60px;
 }
-#navbarPrimary .dropdown-menu {
+header #navbarPrimary .dropdown-menu {
   padding: 0px;
   border-radius: 0px;
 }
-#navbarPrimary .dropdown-menu a.dropdown-item {
+header #navbarPrimary .dropdown-menu a.dropdown-item {
   color: #000000;
   font-size: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
+}
+header #navbarPrimary .navbar-mobile {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  line-height: 29px;
+  text-align: center;
+}
+header #navbarPrimary .navbar-mobile svg {
+  font-size: 24px;
+}
+header .navbar-mobile {
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  header .navbar-mobile {
+    display: block;
+  }
+  header .boxMenuMobile {
+    height: 100%;
+    max-height: 100%;
+    margin-top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    overflow: scroll;
+    padding-bottom: 100px;
+    background: #ffffff;
+  }
+  header .boxMenuMobile::-webkit-scrollbar {
+    width: 3px;
+  }
+  header .boxMenuMobile::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  header .boxMenuMobile::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #dddddd;
+  }
+  header .boxMenuMobile::-webkit-scrollbar-thumb:hover {
+    background: #cacaca;
+  }
+  header .boxMenuMobile .listMenu h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  header .boxMenuMobile .listMenu ul {
+    padding-left: 0px;
+    margin-bottom: 0px;
+  }
+  header .boxMenuMobile .listMenu ul li {
+    list-style: none;
+    margin-bottom: 8px;
+  }
+  header .boxMenuMobile .listMenu ul li:last-child {
+    margin-bottom: 0px;
+  }
+  header .boxMenuMobile .listMenu ul li a {
+    font-size: 14px;
+    color: #1d3557;
+  }
+  header #navbarPrimary .navbar-brand img {
+    width: 50px;
+  }
+}
+@media screen and (max-width: 480px) {
+  header .navbarTop {
+    display: none;
+  }
 }
 
 .navbarTop {
