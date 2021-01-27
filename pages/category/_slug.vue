@@ -79,7 +79,8 @@
                         {{data._embedded["wp:term"][0][0].name}}
                       </span>
                     </div>
-                    <img :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
+                    <img v-if="!data._embedded[`wp:featuredmedia`]" class="mr-4" src="@/assets/img/no_image.png"/>
+                    <img v-else :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
                   </nuxt-link>
                   <div class="media-body">
                     <nuxt-link :to="`/read/${data.slug}`">
