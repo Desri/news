@@ -1,5 +1,5 @@
 export default {
-  target: 'server',
+  // target: 'server',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'indochat-news',
@@ -74,7 +74,7 @@ export default {
   },
   
   proxy: {
-    '/api/': { target: 'https://news-rest.telunjukatas.tech/wp-json/', pathRewrite: {'^/api/': ''},changeOrigin: true }
+    '/api/': { target: 'https://wordpress-development.indochat.co.id/wp-json/', pathRewrite: {'^/api/': ''},changeOrigin: true }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
