@@ -1,27 +1,172 @@
 export default {
   async fetchArtikels({ commit }) {
     try {
-      const response = await this.$axios.$get(`/wp-json/wp/v2/posts?_embed`)
-      commit('SET_ARTIKELS', response)
-      //console.log(response[0]._embedded.["wp:term"][0][0].name)
+      await $.ajax({
+        type: "GET",
+        url: "/api/wp/v2/posts?per_page=10&_embed",
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_ARTIKELS', response)
+        }
+      });
     } catch (error) {
       throw error
     }
   },
   async fetchDetailArtikel({ commit }, slug) {
     try {
-      const response = await this.$axios.$get(`/wp-json/wp/v2/posts?slug=${slug}&_embed`)
-      commit('SET_DETAIL', response[0])
+      await $.ajax({
+        type: "GET",
+        url: `/api/wp/v2/posts?slug=${slug}&_embed`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_DETAIL', response[0])
+          $.ajax({
+            type: "GET",
+            url: `/api/indonews/v1/viewspost/${response[0].id}`,
+            beforeSend: function(xhr){
+              xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+            },
+            success: function(response){
+            
+            }
+          });
+        }
+      });
     } catch (error) {
       throw error
     }
   },
-  async fetchCategory({ commit }, slug) {
+  async fetchPopular({ commit }) {
     try {
-      const response = await this.$axios.$get(`/wp-json/wp/v2/posts?categories=${slug}&_embed`)
-      commit('SET_CATEGORY', response)
+      await $.ajax({
+        type: "GET",
+        url: `/api/indonews/v1/popular-posts`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_POPULAR', response)
+        }
+      });
     } catch (error) {
       throw error
     }
-  }
+  },
+  async fetchTopikTerkait({ commit }, id_post) {
+    try {
+      await $.ajax({
+        type: "GET",
+        url: `/api/indonews/v1/related-posts/${id_post}`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_TOPIK_TERKAIT', response)
+        }
+      });
+    } catch (error) {
+      throw error
+    }
+  },
+  // async fetchCategory({ commit }, slug) {
+  //   try {
+  //     await $.ajax({
+  //       type: "GET",
+  //       url: `/api/wp/v2/posts?categories=${slug}&_embed`,
+  //       beforeSend: function(xhr){
+  //         xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+  //       },
+  //       success: function(response){
+  //         commit('SET_CATEGORY', response)
+  //       }
+  //     });
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // },
+  async fetchCategory({ commit }, slug) {
+    try {
+      await $.ajax({
+        type: "GET",
+        url: `/api/indonews/v1/posts-category/${slug}/1`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_CATEGORY', response[0])
+        }
+      });
+    } catch (error) {
+      throw error
+    }
+  },
+  async fetchRecomend({ commit }, slug) {
+    try {
+      await $.ajax({
+        type: "GET",
+        url: `/api/indonews/v1/recommend/${slug}`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_RECOMMEND', response)
+        }
+      });
+    } catch (error) {
+      throw error
+    }
+  },
+  async fetchJudulCategory({ commit }, slug) {
+    try {
+      await $.ajax({
+        type: "GET",
+        url: `/api/wp/v2/categories/${slug}`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_JUDUL_CATEGORY', response)
+        }
+      });
+    } catch (error) {
+      throw error
+    }
+  },
+  async fetchHeadline({ commit }) {
+    try {
+      await $.ajax({
+        type: "GET",
+        url: `/api/indonews/v1/headline`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_HEADLINE', response)
+        }
+      });
+    } catch (error) {
+      throw error
+    }
+  },
+  async fetchSubHeadline({ commit }) {
+    try {
+      await $.ajax({
+        type: "GET",
+        url: `/api/indonews/v1/subheadline`,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        },
+        success: function(response){
+          commit('SET_SUBHEADLINE', response)
+        }
+      });
+    } catch (error) {
+      throw error
+    }
+  },
 };

@@ -4,7 +4,7 @@
       <b-row>
         <b-col cols="12" sm="8" md="8" lg="8">
           <div class="new-article">
-            <div class="heading-article">
+            <div class="heading-article mb-0">
               <div class="heading-left float-left">
                 <span class="baging"></span>
                 <h3>Terbaru</h3>
@@ -12,9 +12,7 @@
               <div class="heading-right float-right">
                 <span></span>
                 <p>
-                  <nuxt-link to="/#">
-                    Lihat lainnya &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </nuxt-link>
+                  <a @click="parseJwt()">Lihat lainnya<b-icon-chevron-right></b-icon-chevron-right></a>
                 </p>
               </div>
             </div>
@@ -23,17 +21,17 @@
                 <li class="media py-3" v-for="data in fetchedArtikels" :key="data.id">
                   <nuxt-link :to="`/read/${data.slug}`">
                     <div class="box-label">
-                        <span class="label-categories">
-                          {{data._embedded["wp:term"][0][0].name}}
-                        </span>
+                      <span class="label-categories">
+                        {{data._embedded["wp:term"][0][0].name}}
+                      </span>
                     </div>
                     <img v-if="!data._embedded[`wp:featuredmedia`]" class="mr-4" src="@/assets/img/no_image.png"/>
                     <img v-else :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
                   </nuxt-link>
                   <div class="media-body">
-                    <nuxt-link :to="`/read/${data.slug}`">
-                      <h5 class="mt-0">{{data.title.rendered}}</h5>
-                    </nuxt-link>
+                    <a :href="`/read/${data.slug}`">
+                      <h5 class="mt-0">{{stripHtml(data.title.rendered)}}</h5>
+                    </a>
                     <p class="d-none d-sm-block">{{stripHtml(data.excerpt.rendered)}}</p>
                     <div class="box-user">
                       <div class="box-avatar-creator">
@@ -73,7 +71,7 @@
     },
     data () {
       return {
-        
+
       }
     },
     computed: {
@@ -82,10 +80,28 @@
       }),
     },
     async mounted() {
-      await this.$store.dispatch('artikel/fetchArtikels');
+      if (localStorage.getItem("guest") !== null) {
+        await this.$store.dispatch('artikel/fetchArtikels');
+      }
     },
     methods: {
-      
+
+      parseJwt () {
+        let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLWRldmVsb3BtZW50LmluZG9jaGF0LmNvLmlkIiwiaWF0IjoxNjE0MDQ4MzUzLCJuYmYiOjE2MTQwNDgzNTMsImV4cCI6MTYxNDY1MzE1MywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.xOzHdocLKDhUf98fKJRYWSakqvq3ogT_2V-dmPIjAQ8'
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        let exp = JSON.parse(jsonPayload).exp * 1000;
+        if (new Date(exp) <= new Date()) {
+          console.log('true')
+        }else{
+          console.log('false')
+        }
+      },
+
     }
   }
 </script>

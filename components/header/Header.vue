@@ -7,10 +7,10 @@
             <div class="topContact float-left">
               <ul>
                 <li>
-                  <nuxt-link to="/#"><b-icon-telephone></b-icon-telephone> 0821-77877878</nuxt-link>
+                  <b-icon-telephone></b-icon-telephone> {{$store.state.identity.identity.phone}}
                 </li>
                 <li>
-                  <nuxt-link to="/#"><b-icon-envelope></b-icon-envelope> test@email.com</nuxt-link>
+                  <nuxt-link to="/#"><b-icon-envelope></b-icon-envelope> {{$store.state.identity.identity.email}}</nuxt-link>
                 </li>
               </ul>
             </div>
@@ -39,7 +39,7 @@
     computed: {
       
     },
-    mounted() {
+    async mounted() {
       
     },
     created() {

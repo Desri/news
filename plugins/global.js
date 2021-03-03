@@ -2,9 +2,7 @@ import Vue from 'vue'
 
 Vue.mixin({
   computed: {
-    authen() { return this.$store.state.authen.auth },
-    authUser() { return this.$store.state.authen.authUser },
-    tokens() { return this.$store.state.authen.token },
+    
   },
 
   methods: {
@@ -21,15 +19,15 @@ Vue.mixin({
       return tmp.textContent || tmp.innerText || "";
     },
     formatDate(date) {
-      var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-      if (month.length < 2) month = '0' + month;
-      if (day.length < 2) day = '0' + day;
-
-      return [day, month, year ].join('-');
+      let arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+      let arrhari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+      let dates = new Date(date);
+      let hari = dates.getDay();
+      let tanggal = dates.getDate();
+      let bulan = dates.getMonth();
+      let tahun = dates.getFullYear();
+      let datetimes = arrhari[hari]+", "+tanggal+" "+arrbulan[bulan]+" "+tahun;
+      return datetimes;
     },
     isNumber: function(evt) {
       evt = (evt) ? evt : window.event;
@@ -48,6 +46,40 @@ Vue.mixin({
       let val = (value/1).toFixed(0).replace('.', ',')
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
     },
+    onShowNotifComment() {
+      this.$bvToast.toast('Komentar Anda akan segera kami publish', {
+        title: `Success`,
+        variant: 'success',
+        solid: true
+      })
+    },
+    onShowNotifExpression() {
+      this.$bvToast.toast('Terimakasih, survei Anda di artikel ini telah kami terima', {
+        title: `Success`,
+        variant: 'success',
+        solid: true
+      })
+    },
+
+    getData(url) {
+      return new Promise(
+        (resolve, reject) => {
+          this.$axios.$get(url).then( (response) => {
+            if (response.data !== undefined) {
+              resolve(response.data)
+            }
+            reject(response.message)
+            console.log(response.data)
+          }, (error) => {
+            reject(error.response.data.message);
+          })
+          .catch(function (error) {
+            reject(error)
+          })
+        }
+      )
+    },
+
     postData(url,data) {
       return new Promise(
         (resolve, reject) => {

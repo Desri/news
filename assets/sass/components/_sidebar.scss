@@ -1,6 +1,9 @@
 .sidebar-top {
 	.img-sidebar-top {
 		margin-bottom: 20px;
+		img {
+			width: 100%;
+		}
 	}
 	.trending-box {
 		.trending-list {
@@ -59,7 +62,7 @@
 						float: left;
 					    width: 28px;
 					    height: 28px;
-					    margin-top: 5px;
+					    margin-bottom: 5px;
 					    margin-right: 10px;
 					    border-radius: 50%;
 					    text-align: center;
@@ -78,6 +81,8 @@
 						}
 					}
 					p {
+						width: 87%;
+						float: left;
 						font-weight: 600;
 						line-height: 23px;
 						margin-bottom: 0px;

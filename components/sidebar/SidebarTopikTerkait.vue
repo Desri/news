@@ -8,26 +8,17 @@
         </div>
       </div>
       <ul class="list-unstyled">
-        <b-media tag="li">
+        <b-media tag="li" class="my-4" v-for="data in listTopikTerkait" :key="data.id">
           <template #aside>
-            <b-img blank blank-color="#abc" width="64" alt="placeholder"></b-img>
+            <a :href="`/read/${data.post_slug}`">
+              <img v-if="data.featured_image == null || data.featured_image == ''" class="img-fluid" src="@/assets/img/no_image.png"/>
+              <img v-else :src="data.featured_image" class="img-fluid" :alt="data.post_title" />
+            </a>
           </template>
-          <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="mb-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
-        </b-media>
-        <b-media tag="li" class="my-4">
-          <template #aside>
-           <b-img blank blank-color="#cba" width="64" alt="placeholder"></b-img>
-          </template>
-          <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="mb-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus.</p>
-        </b-media>
-        <b-media tag="li">
-          <template #aside>
-            <b-img blank blank-color="#bac" width="64" alt="placeholder"></b-img>
-          </template>
-          <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="mb-0">Cras sit amet nibh libero, in gravida nulla nulla vel.</p>
+          <a :href="`/read/${data.post_slug}`">
+            <h5 class="mt-0 mb-1">{{data.post_title}}</h5>
+          </a>
+          <p class="mb-0">{{data.post_excerpt}}</p>
         </b-media>
       </ul>
     </div>
@@ -36,13 +27,21 @@
 
 <script>
   export default {
+    props: [
+      'listTopikTerkait',
+    ],
     components : {
 
+    },
+    data () {
+      return {
+
+      }
     },
     computed: {
       
     },
-    mounted() {
+    async mounted() {
       
     },
     methods: {

@@ -4,16 +4,16 @@
       <b-row>
         <b-col cols="12" md="4" lg="4" class="text-center flex-wrap mb-4 mb-md-0">
           <div class="logo_footer mb-3">
-            <img src="@/assets/img/apple.svg"/>
+            <img :src="$store.state.identity.identity.logo"/>
           </div>
           <p class="m-0 text-white copyright">＠2021 PT. Testing News All Rights Reserved</p>
           <div class="list_sosmed mt-3">
             <ul>
-              <li>
-                <a href="#"><img src="@/assets/img/icon-sosmed/instagram.svg"/></a>
+              <li v-if="$store.state.identity.identity.instagram != ''">
+                <a :href="$store.state.identity.identity.instagram"><img src="@/assets/img/icon-sosmed/instagram.svg"/></a>
               </li>
-              <li>
-                <a href="#"><img src="@/assets/img/icon-sosmed/facebook.svg"/></a>
+              <li v-if="$store.state.identity.identity.facebook != ''">
+                <a :href="$store.state.identity.identity.facebook"><img src="@/assets/img/icon-sosmed/facebook.svg"/></a>
               </li>
             </ul>
           </div>
@@ -53,7 +53,7 @@
                 <nuxt-link to="/#">Dari Redaksi</nuxt-link>
               </li>
               <li class="mb-2">
-                <nuxt-link to="/#">Pedoman Media Siber</nuxt-link>
+                <nuxt-link to="/pedoman-media-siber">Pedoman Media Siber</nuxt-link>
               </li>
               <li class="mb-2">
                 <nuxt-link to="/#">Ketentuan Penggunaan</nuxt-link>

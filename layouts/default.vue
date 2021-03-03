@@ -1,21 +1,25 @@
 <template>
   <div>
     <Header />
-    <Nuxt class="ter" />
+    <Nuxt />
     <Footer />
     <ScrollTop />
+    <AdsBottom />
   </div>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   import Header from '~/components/header/Header';
   import Footer from '~/components/footer';
   import ScrollTop from '~/components/scroll-to-top';
+  import AdsBottom from '~/components/ads';
   export default {
     components : {
       Header,
       Footer,
-      ScrollTop
+      ScrollTop,
+      AdsBottom
     },
     data () {
       return {
@@ -23,9 +27,23 @@
           username: 'dery',
           password: 'NGebbEM9dEGx60DqBJagUjyc',
         },
+        favicon: this.$store.state.identity
       }
     },
+    head(){
+      return {
+        link: [{ 
+          rel: 'icon', 
+          type: 'image/x-icon', 
+          href: this.favicon.identity.logoIcon
+        }]
+      }
+    },
+    
     computed: {
+      ...mapGetters({
+        fetchedIdentity: 'identity/identity'
+      }),
       connectionStatus() {
         return this.$nuxt.isOffline
       },
@@ -47,16 +65,18 @@
       },
     },
     async mounted() {
-      if (localStorage.getItem("auth._token.local") === null || localStorage.getItem("auth._token.local") === false) {
-        this.onSubmit()
+      if (localStorage.getItem("guest") === null || localStorage.getItem("guest") === false) {
+        await this.$store.dispatch('get-token/fetchGuestToken', this.form)
+      }else{
+        await this.$store.dispatch('identity/fetchIdentity');
       }
     },
     methods: {
-      onSubmit() {
-        this.$auth.loginWith('local', {
-          data: this.form
-        })
-      },
+      // onSubmit() {
+      //   this.$auth.loginWith('local', {
+      //     data: this.form
+      //   })
+      // },
     },
   }
 </script>

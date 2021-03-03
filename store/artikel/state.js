@@ -1,5 +1,11 @@
 export default () => ({
   artikels: [],
   detail: {},
-  category: {}
+  topikTerkait: [],
+  popular: [],
+  category: [],
+  recomend: [],
+  judulCategory: {},
+  headline: [],
+  subHeadline: [],
 });

@@ -1,0 +1,32 @@
+.box-ads-bottom {
+  bottom: 0;
+  margin: auto;
+  z-index: 1021;
+  position: fixed;
+  text-align: center;
+  img {
+    border-radius: 0px;
+  }
+  .box-close {
+    text-align: right;
+    .btn-close {
+      float: right;
+      cursor: pointer;
+      padding: 0px 13px;
+      width: max-content;
+      background: $color-second;
+      p {
+        font-size: 13px;
+        color: $color-white;
+        svg {
+          font-size: 17px;
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}

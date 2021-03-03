@@ -2,139 +2,19 @@
   <div>
     <b-container>
       <b-row class="mb-4">
-        <b-col cols="6" sm="6" md="6" lg="6">
+        <b-col cols="12">
           <div class="listMenu">
-            <h2>Pop Culture</h2>
             <ul>
               <li>
-                <nuxt-link to="/#">Celebrity</nuxt-link>
+                <a href="/">HOME</a>
               </li>
-              <li>
-                <nuxt-link to="/#">Music</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Books</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Rewind</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Movies</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </b-col>
-        <b-col cols="6" sm="6" md="6" lg="6">
-          <div class="listMenu">
-            <h2>Sains</h2>
-            <ul>
-              <li>
-                <nuxt-link to="/#">Celebrity</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Music</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Books</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Rewind</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Movies</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </b-col>
-      </b-row>
-      <b-row class="mb-4">
-        <b-col cols="6" sm="6" md="6" lg="6">
-          <div class="listMenu">
-            <h2>Pop Culture</h2>
-            <ul>
-              <li>
-                <nuxt-link to="/#">Celebrity</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Music</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Books</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Rewind</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Movies</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </b-col>
-        <b-col cols="6" sm="6" md="6" lg="6">
-          <div class="listMenu">
-            <h2>Sains</h2>
-            <ul>
-              <li>
-                <nuxt-link to="/#">Celebrity</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Music</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Books</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Rewind</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Movies</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="6" sm="6" md="6" lg="6">
-          <div class="listMenu">
-            <h2>Pop Culture</h2>
-            <ul>
-              <li>
-                <nuxt-link to="/#">Celebrity</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Music</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Books</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Rewind</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Movies</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </b-col>
-        <b-col cols="6" sm="6" md="6" lg="6">
-          <div class="listMenu">
-            <h2>Sains</h2>
-            <ul>
-              <li>
-                <nuxt-link to="/#">Celebrity</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Music</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Books</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Rewind</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/#">Movies</nuxt-link>
-              </li>
+              <div v-for="data in fetchedMenus" :key="data.id" class="menu-mobile">
+                <li>
+                  <a v-if="data.type != 'custom'" :href="`/${data.object}/${data.object_id}`" :data-label="`${data.title}`">
+                    {{data.title}}
+                  </a>
+                </li>
+              </div>
             </ul>
           </div>
         </b-col>
@@ -144,6 +24,7 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   import LoginForm from '~/components/form/LoginForm';
   export default {
     components : {
@@ -155,10 +36,12 @@
       }
     },
     computed: {
-      
+      ...mapGetters({
+        fetchedMenus: 'menu/menus'
+      }),
     },
-    mounted() {
-      
+    async mounted() {
+      await this.$store.dispatch('menu/fetchMenus');
     },
     methods: {
       

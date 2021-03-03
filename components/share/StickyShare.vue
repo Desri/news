@@ -4,23 +4,30 @@
       <p>Share</p>
       <ul>
         <li>
-          <a :href="`https://www.facebook.com/sharer/sharer.php?t=${data}&u=${this.fullPath}`" target="_blank">
+          <a :href="`https://www.facebook.com/sharer/sharer.php?t=${stripHtml(data)}&u=${this.fullPath}`" target="_blank">
             <div class="sosmed-share fb">
               <b-icon-facebook></b-icon-facebook>
             </div>
           </a>
         </li>
         <li>
-          <a :href="`https://twitter.com/intent/tweet?text=${data}&u=${this.fullPath}`" target="_blank">
+          <a :href="`https://twitter.com/intent/tweet?text=${stripHtml(data)}&u=${this.fullPath}`" target="_blank">
             <div class="sosmed-share tw">
               <b-icon-twitter></b-icon-twitter>
             </div>
           </a>
         </li>
         <li>
-          <a :href="`whatsapp://send?text=${data}%0A${this.fullPath}`" target="_blank">
+          <a :href="`https://api.whatsapp.com/send?text=${this.fullPath}`" target="_blank">
             <div class="sosmed-share wa">
               <b-icon-chat-dots></b-icon-chat-dots>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" @click="copyLink(urlPath)">
+            <div class="sosmed-share copy">
+              <b-icon-files></b-icon-files>
             </div>
           </a>
         </li>
@@ -30,7 +37,6 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
   export default {
     props: [
       'data',
@@ -41,6 +47,7 @@
     data () {
       return {
         fullPath : '',
+        urlPath: window.location.href,
       }
     },
     computed: {
@@ -50,7 +57,21 @@
       this.fullPath = window.location.href
     },
     methods: {
-      
+      copyLink (value) {
+        var tempInput = document.createElement("input");
+        tempInput.value = value;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        this.$bvToast.toast('Link berhasil dicopy', {
+          toaster: 'b-toaster-top-center',
+          noCloseButton: true,
+          solid: true,
+          noAutoHide: false,
+          variant: 'success',
+        })
+      },
     }
   }
 </script>

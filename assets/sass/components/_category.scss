@@ -1,11 +1,76 @@
 .recomendation {
 	.box-recomendation {
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+			img {
+			    width: 100%;
+			    height: 130px;
+			    max-height: 100%;
+			}
+		}
 		.short-desc {
 			padding: 10px 0px;
 			p {
+				color: #1d3557;
 				font-size: 15px;
 				line-height: 19px;
+				text-overflow: ellipsis;
+			    -webkit-line-clamp: 2;
+			    -webkit-box-orient: vertical;
+			    max-height: 40px;
+			    overflow: hidden;
+			    display: -webkit-box !important;
+
+				&:hover {
+					text-decoration: none;
+				}
 			}
+
 		}
 	}
+	@media screen and (max-width: 480px) {
+		.box-recomendation {
+			a {
+				img {
+				    height: 100px;
+				    max-height: 100%;
+				}
+			}
+		}
+	    .section-recomendation {
+	    	overflow: auto;
+	      	padding-left: 10px;
+	      	.row {
+	      		display: -webkit-inline-box;
+		    	display: inline-flex;
+		    	width: 100%;
+		    	flex-wrap: inherit;
+		    	.col-6 {
+		    		padding: 6px;
+		    	}
+	      	}
+	      	&::-webkit-scrollbar {
+	      		height: 4px;
+	      	}
+	      	&::-webkit-scrollbar-track {
+	      		background: #f1f1f1; 
+	      	}
+	      	&::-webkit-scrollbar-thumb {
+	      		border-radius: 8px;
+	      		background: #dddddd; 
+	      	}
+	      	&::-webkit-scrollbar-thumb:hover {
+	      		background: #cacaca; 
+	      	}
+	      	.box-recomendation {
+	      		.short-desc {
+	      			p {
+	      				font-size: 14px;
+	      			}
+	      		}
+	      	}
+	    }
+  	}
 }

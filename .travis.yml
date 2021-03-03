@@ -1,4 +1,6 @@
 language: node_js
+services:
+  - docker
 node_js:
   - 10
 
@@ -10,11 +12,15 @@ branches:
     - development
 
 before_install:
-  - echo "do nothing"
+  - pip install awscli --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
 
 install:
+  - ECRLOGIN=$(aws ecr get-login --region ap-southeast-1 --no-include-email)
+  - ${ECRLOGIN}
   - npm install
   - npm run generate
+  - bash shells/deploy.sh
 
 script:
   - echo "nothing done in script"

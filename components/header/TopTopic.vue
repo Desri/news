@@ -6,28 +6,14 @@
           <div class="nav-trending">
             <ul>
               <li><b-icon-lightning></b-icon-lightning></li>
+              <!-- <li v-for="data in fetchedTags" :key="data.id">
+                <a href="#">{{data.name}}</a>
+              </li> -->
               <li>
-                <a href="#">The Best Of 2021</a>
+                <nuxt-link :to="`/tag/best-lifestyle-of-2020`">Best Lifestyle Of 2020</nuxt-link>
               </li>
               <li>
-                <a href="#">
-                  Best Lifestyle Of 2020
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Top Quizzes Of 2020
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Top Creator Of 2020
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Top Article
-                </a>
+                <nuxt-link :to="`/tag/the-best-of-2021`">The best of 2021</nuxt-link>
               </li>
               <li><b-icon-lightning></b-icon-lightning></li>
             </ul>
@@ -39,15 +25,25 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   export default {
     components : {
       
     },
-    computed: {
-      
+    data () {
+      return {
+        
+      }
     },
-    mounted() {
-      
+    computed: {
+      ...mapGetters({
+        fetchedTags: 'tags/tags'
+      }),
+    },
+    async mounted() {
+      if (localStorage.getItem("guest") !== null) {
+        await this.$store.dispatch('tags/fetchTags');
+      }
     },
     methods: {
       

@@ -8,68 +8,12 @@
         </div>
       </div>
       <ul>
-        <li>
-          <a href="#">
+        <li v-for="(data, index) in fetchedPopular" :key="data.id">
+          <a :href="`/read/${data.post_name}`">
             <div class="num">
-              <span>1</span>
+              <span>{{index+1}}</span>
             </div>
-            <p>When an unknown printer took a galley and scrambled</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>2</span>
-            </div>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>3</span>
-            </div>
-            <p>Lorem Ipsum is simply dummy text of the printing</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>4</span>
-            </div>
-            <p>When an unknown printer took a galley and scrambled</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>5</span>
-            </div>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>6</span>
-            </div>
-            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>7</span>
-            </div>
-            <p>Lorem Ipsum passage, and going through the cites of the word</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="num">
-              <span>8</span>
-            </div>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+            <p>{{data.post_title}}</p>
           </a>
         </li>
       </ul>
@@ -78,15 +22,25 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   export default {
     components : {
 
     },
-    computed: {
-      
+    data () {
+      return {
+
+      }
     },
-    mounted() {
-      
+    computed: {
+      ...mapGetters({
+        fetchedPopular: 'artikel/popular'
+      }),
+    },
+    async mounted() {
+      if (localStorage.getItem("guest") !== null) {
+        await this.$store.dispatch('artikel/fetchPopular');
+      }
     },
     methods: {
       
