@@ -153,7 +153,8 @@
         <div class="d-none d-sm-block col-sm-4 col-lg-4">
           <div class="sidebar-top">
             <div class="img-sidebar-top">
-              <img src="@/assets/img/img-sidebar.jpg" alt="ads top">
+              <!-- <img src="@/assets/img/img-sidebar.jpg" alt="ads top"> -->
+              <AdsCenter class="mb-4" />
             </div>
             <div class="trending-box sticky-top">
               <div class="trending-list">
@@ -186,9 +187,10 @@
 </template>
 
 <script>
+  import AdsRight from '~/components/ads/AdsRight'
   export default {
     components : {
-
+      AdsRight
     },
     computed: {
       
