@@ -97,7 +97,7 @@
       }),
 
       url() {
-        return `/wp-json/indonews/v1/posts-category/${this.$route.params.slug}/${this.page}`;
+        return `/api/indonews/v1/posts-category/${this.$route.params.slug}/${this.page}`;
       }
 
     },
@@ -126,7 +126,7 @@
         var $self = this;
         $.ajax({
           type: "GET",
-          url: `/wp-json/indonews/v1/posts-category/${params.slug}/1`,
+          url: `/api/indonews/v1/posts-category/${params.slug}/1`,
           beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
           },
