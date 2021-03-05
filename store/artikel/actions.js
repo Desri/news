@@ -73,27 +73,11 @@ export default {
       throw error
     }
   },
-  // async fetchCategory({ commit }, slug) {
-  //   try {
-  //     await $.ajax({
-  //       type: "GET",
-  //       url: `/api/wp/v2/posts?categories=${slug}&_embed`,
-  //       beforeSend: function(xhr){
-  //         xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
-  //       },
-  //       success: function(response){
-  //         commit('SET_CATEGORY', response)
-  //       }
-  //     });
-  //   } catch (error) {
-  //     throw error
-  //   }
-  // },
-  async fetchCategory({ commit }, slug) {
+  async fetchCategory({ commit }, params) {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/posts-category/${slug}/1`,
+        url: `/api/indonews/v1/posts-category/${params.slug}/1`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -105,7 +89,23 @@ export default {
       throw error
     }
   },
-  async fetchRecomend({ commit }, slug) {
+  // async fetchCategory({ commit }, slug) {
+  //   try {
+  //     await $.ajax({
+  //       type: "GET",
+  //       url: `/api/indonews/v1/posts-category/${slug}/1`,
+  //       beforeSend: function(xhr){
+  //         xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+  //       },
+  //       success: function(response){
+  //         commit('SET_CATEGORY', response[0])
+  //       }
+  //     });
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // },
+  async fetchReccomend({ commit }, slug) {
     try {
       await $.ajax({
         type: "GET",
@@ -114,7 +114,7 @@ export default {
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
         success: function(response){
-          commit('SET_RECOMMEND', response)
+          commit('SET_RECCOMEND', response)
         }
       });
     } catch (error) {

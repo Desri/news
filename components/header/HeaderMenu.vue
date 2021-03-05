@@ -2,12 +2,6 @@
   <div>
     <b-navbar toggleable="lg" id="navbarPrimary">
       <b-container>
-        <!-- <b-navbar-toggle target="nav-collapse">
-          <template #default="{ expanded }">
-            <b-icon v-if="expanded" icon="x"></b-icon>
-            <b-icon v-else icon="list"></b-icon>
-          </template>
-        </b-navbar-toggle> -->
         <div class="navbar-mobile" @click="onShowMenu">
           <b-icon-x v-if="expanded"></b-icon-x>
           <b-icon-list v-if="notExpanded"></b-icon-list>
@@ -17,11 +11,6 @@
         </b-navbar-brand>
         <b-collapse is-nav>
           <b-navbar-nav class="ml-autos ml-3">
-            <li class="nav-item">
-              <nuxt-link :to="`/`" class="nav-link">
-                Home
-              </nuxt-link>
-            </li>
             <div v-for="data in menuCategory" :key="data.id">
               <li class="nav-item">
                 <nuxt-link :to="`/categories/${data.slug}`" class="nav-link">
@@ -61,13 +50,6 @@
                 </div> -->
               </div>
               <ul>
-                <div class="menu-mobile">
-                  <li>
-                    <a href="/">
-                      Home
-                    </a>
-                  </li>
-                </div>
                 <div v-for="data in menuCategory" :key="data.id" class="menu-mobile">
                   <li>
                     <a :href="`/categories/${data.slug}`">

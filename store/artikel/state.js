@@ -4,7 +4,7 @@ export default () => ({
   topikTerkait: [],
   popular: [],
   category: [],
-  recomend: [],
+  reccomend: [],
   judulCategory: {},
   headline: [],
   subHeadline: [],

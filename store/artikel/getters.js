@@ -14,8 +14,8 @@ export default {
   category(state) {
     return state.category;
   },
-  recomend(state) {
-    return state.recomend;
+  reccomend(state) {
+    return state.reccomend;
   },
   judulCategory(state) {
     return state.judulCategory;

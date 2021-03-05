@@ -29,6 +29,15 @@ Vue.mixin({
       let datetimes = arrhari[hari]+", "+tanggal+" "+arrbulan[bulan]+" "+tahun;
       return datetimes;
     },
+    formatDateList(date) {
+      let arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+      let dates = new Date(date);
+      let tanggal = dates.getDate();
+      let bulan = dates.getMonth();
+      let tahun = dates.getFullYear();
+      let datetimes = tanggal+" "+arrbulan[bulan]+" "+tahun;
+      return datetimes;
+    },
     isNumber: function(evt) {
       evt = (evt) ? evt : window.event;
       var charCode = (evt.which) ? evt.which : evt.keyCode;

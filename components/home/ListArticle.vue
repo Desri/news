@@ -25,8 +25,16 @@
                         {{data._embedded["wp:term"][0][0].name}}
                       </span>
                     </div>
-                    <img v-if="!data._embedded[`wp:featuredmedia`]" class="mr-4" src="@/assets/img/no_image.png"/>
-                    <img v-else :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
+
+                    <div class="box-image-post">
+                      <div class="box-no-image mr-4" v-if="!data._embedded[`wp:featuredmedia`]">
+                        <div class="bg-no-image" :style="{'background':'url(' + noImage + ')','background-size': 'cover','background-repeat': 'no-repeat','background-position': 'center center'}"></div>
+                      </div>
+                      <div v-else class="mr-4">
+                        <img :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
+                      </div>
+                    </div>
+
                   </nuxt-link>
                   <div class="media-body">
                     <a :href="`/read/${data.slug}`">
@@ -38,7 +46,11 @@
                         <nuxt-link to="/#">
                           <img :src="data._embedded.author[0].avatar_urls[48]" alt="Avatar" /><span>{{data._embedded.author[0].name}}</span>
                         </nuxt-link>
-                      </div><!-- 
+                      </div>
+                      <div class="box-post-date">
+                        <span><b-icon-circle-fill></b-icon-circle-fill> {{formatDateList(data.date)}}</span>
+                      </div>
+                      <!-- 
                       <div class="box-sperator">|</div>
                       <div class="box-comments">
                         <div class="comment-article">
@@ -71,7 +83,7 @@
     },
     data () {
       return {
-
+        noImage: require(`~/assets/img/no_image.png`)
       }
     },
     computed: {
@@ -85,7 +97,6 @@
       }
     },
     methods: {
-
       parseJwt () {
         let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLWRldmVsb3BtZW50LmluZG9jaGF0LmNvLmlkIiwiaWF0IjoxNjE0MDQ4MzUzLCJuYmYiOjE2MTQwNDgzNTMsImV4cCI6MTYxNDY1MzE1MywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.xOzHdocLKDhUf98fKJRYWSakqvq3ogT_2V-dmPIjAQ8'
         var base64Url = token.split('.')[1];

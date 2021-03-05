@@ -1,11 +1,8 @@
 import webpack from 'webpack';
 import './config/index.js';
 require('dotenv').config()
+
 export default {
-  mode: 'universal',
-  generate: {
-    fallback: true
-  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: process.env.npm_package_name || '',
@@ -47,8 +44,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: [
-  ],
+  buildModules: [],
 
   auth: {
     strategies: {
@@ -81,7 +77,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: process.env.BASE_API_URL,
+    //baseURL: process.env.BASE_API_URL,
     proxy: true,
     proxyHeaders: false,
     credentials: false,
