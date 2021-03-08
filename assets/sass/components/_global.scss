@@ -52,6 +52,9 @@ img {
 			font-weight: 700;
 		    margin-left: 15px;
 		    margin-bottom: 0px;
+			@media screen and (max-width: 768px) {
+				font-size: 18px;
+			}
 		}
 	}
 	.heading-right {

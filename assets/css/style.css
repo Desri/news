@@ -117,6 +117,11 @@ img {
   margin-left: 15px;
   margin-bottom: 0px;
 }
+@media screen and (max-width: 768px) {
+  .heading-article .heading-left h3 {
+    font-size: 18px;
+  }
+}
 .heading-article .heading-right {
   margin-bottom: 20px;
 }
@@ -371,7 +376,7 @@ header .navbar-mobile {
     height: 37px;
     margin-top: 7.5px;
     line-height: 37px;
-    margin-left: 15px;
+    margin-left: 10px;
     text-align: center;
     margin-right: 7.5px;
     margin-bottom: 7.5px;
@@ -578,6 +583,11 @@ footer .download_apps a img {
   font-weight: 700;
   margin-left: 15px;
 }
+@media screen and (max-width: 768px) {
+  .sidebar-top .trending-box .trending-list h3 {
+    font-size: 18px;
+  }
+}
 .sidebar-top .trending-box .trending-list ul {
   list-style: none;
   padding-left: 15px;
@@ -597,6 +607,11 @@ footer .download_apps a img {
   font-size: 21px;
   margin-right: 5px;
   color: #f56565;
+}
+@media screen and (max-width: 1023px) {
+  .sidebar-top {
+    display: none;
+  }
 }
 
 .populer-box {
@@ -644,6 +659,16 @@ footer .download_apps a img {
   font-weight: 600;
   line-height: 23px;
   margin-bottom: 0px;
+}
+@media screen and (max-width: 1024px) {
+  .populer-box .populer-list ul li a p {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .populer-box .populer-list ul li a p {
+    font-size: 16px;
+  }
 }
 .populer-box .populer-list ul li:last-child {
   border-bottom: 0px;
@@ -1342,6 +1367,26 @@ footer .download_apps a img {
   border-radius: 0px !important;
   height: 420px;
 }
+@media (max-width: 700px) and (orientation: landscape) {
+  #slide-top .box-slide .box-img img {
+    height: 250px;
+  }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  #slide-top .box-slide .box-img img {
+    height: 290px;
+  }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #slide-top .box-slide .box-img img {
+    height: 350px;
+  }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
+  #slide-top .box-slide .box-img img {
+    height: 400px;
+  }
+}
 #slide-top .box-slide .box-caption {
   position: absolute;
   bottom: -20px;
@@ -1358,10 +1403,34 @@ footer .download_apps a img {
   margin-bottom: 10px;
   color: #ffffff;
 }
+@media (min-width: 700px) and (orientation: landscape) {
+  #slide-top .box-slide .box-caption h2 {
+    font-size: 17px;
+    line-height: 18px;
+  }
+}
 @media screen and (max-width: 600px) {
   #slide-top .box-slide .box-caption h2 {
     font-size: 17px;
     line-height: 18px;
+  }
+}
+@media (min-width: 667px) and (orientation: landscape) {
+  #slide-top .box-slide .box-caption h2 {
+    font-size: 17px;
+    line-height: 18px;
+  }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #slide-top .box-slide .box-caption h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
+  #slide-top .box-slide .box-caption h2 {
+    font-size: 26px;
+    line-height: 1.2;
   }
 }
 #slide-top .box-slide .box-caption .caption-info {
@@ -1410,6 +1479,21 @@ footer .download_apps a img {
   height: 150px;
   max-height: 100%;
 }
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  #slide-top .box-slide .list-headline .box-headline a .img-headline img {
+    height: 100px;
+  }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #slide-top .box-slide .list-headline .box-headline a .img-headline img {
+    height: 125px;
+  }
+}
+@media screen and (max-width: 640px) {
+  #slide-top .box-slide .list-headline .box-headline a .img-headline img {
+    height: 100px;
+  }
+}
 #slide-top .box-slide .list-headline .box-headline a .content-headline {
   margin-top: 10px;
 }
@@ -1418,12 +1502,36 @@ footer .download_apps a img {
   line-height: 18px;
   color: #1d3557;
 }
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #slide-top .box-slide .list-headline .box-headline a .content-headline p {
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 40px;
+  }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+  #slide-top .box-slide .list-headline .box-headline a .content-headline p {
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #slide-top .box-slide .list-headline .box-headline a .content-headline p {
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 40px;
+  }
+}
 #slide-top .box-slide .list-headline .box-headline a:hover {
   text-decoration: none;
 }
 @media screen and (max-width: 600px) {
   #slide-top .box-slide .box-img img {
-    height: 190px;
+    height: 250px;
   }
 }
 
@@ -1482,6 +1590,11 @@ footer .download_apps a img {
   height: 150px;
   max-height: 100%;
 }
+@media only screen and (min-device-width: 640) and (max-device-width: 360) and (orientation: landscape) {
+  #main .new-article .list-article ul li a img {
+    height: 140px;
+  }
+}
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li a img {
     height: 100px;
@@ -1492,6 +1605,11 @@ footer .download_apps a img {
   font-size: 24px;
   font-weight: 600;
 }
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  #main .new-article .list-article ul li .media-body a h5 {
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li .media-body a h5 {
     font-size: 17px;
@@ -1501,6 +1619,16 @@ footer .download_apps a img {
     -webkit-box-orient: vertical;
     height: 64px;
     overflow: hidden;
+  }
+}
+@media only screen and (min-device-width: 375px) and (min-device-width: 812px) and (orientation: landscape) {
+  #main .new-article .list-article ul li .media-body a h5 {
+    font-size: 18px !important;
+  }
+}
+@media (min-width: 667px) and (orientation: landscape) {
+  #main .new-article .list-article ul li .media-body a h5 {
+    font-size: 18px !important;
   }
 }
 #main .new-article .list-article ul li .media-body a:hover {
@@ -1567,6 +1695,11 @@ footer .download_apps a img {
   color: #a7a7a7;
 }
 @media screen and (max-width: 600px) {
+  #main .new-article .list-article ul li .media-body .box-user .box-post-date {
+    display: none;
+  }
+}
+@media screen and (max-width: 667px) and (orientation: landscape) {
   #main .new-article .list-article ul li .media-body .box-user .box-post-date {
     display: none;
   }

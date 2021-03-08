@@ -2,14 +2,14 @@
   <section id="slide-top">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-lg-8">
+        <div class="col-sm-12 col-lg-8">
           <div class="box-slide">
             <VueSlickCarousel :arrows="false" :autoplay="true" :speed="4000">
               <div>
                 <div class="item">
                   <div class="box-slide">
                     <div class="box-img">
-                      <img src="@/assets/img/slide1.jpg" class="img-fluid">
+                      <AdsRight />
                     </div>
                     <div class="box-caption">
                       <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h2>
@@ -153,8 +153,7 @@
         <div class="d-none d-sm-block col-sm-4 col-lg-4">
           <div class="sidebar-top">
             <div class="img-sidebar-top">
-              <!-- <img src="@/assets/img/img-sidebar.jpg" alt="ads top"> -->
-              <AdsCenter class="mb-4" />
+              <AdsRight />
             </div>
             <div class="trending-box sticky-top">
               <div class="trending-list">
@@ -187,7 +186,7 @@
 </template>
 
 <script>
-  import AdsRight from '~/components/ads/AdsRight'
+  import AdsRight from '~/components/ads/AdsRight';
   export default {
     components : {
       AdsRight

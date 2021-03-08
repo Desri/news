@@ -9,7 +9,8 @@
                 <p class="mb-0">Close<b-icon-x></b-icon-x></p>
               </div>
             </div>
-            <img src="@/assets/img/ads_bottom.jpg" alt="Ads" />
+            <!-- <img src="@/assets/img/ads_bottom.jpg" alt="Ads" /> -->
+            <AdsBottom />
           </div>
         </b-col>
       </b-row>
@@ -18,9 +19,10 @@
 </template>
 
 <script>
+  import AdsBottom from '~/components/ads/AdsBottom';
   export default {
     components : {
-
+      AdsBottom
     },
     data() {
       return {

@@ -25,7 +25,7 @@ export default {
     async mounted() {
         if(localStorage.getItem("guest") !== null) {
             await this.$store.dispatch('ads/fetchAds');
-            //console.log(this.fetchedAds.center)
+            console.log(this.fetchedAds.center)
             this.url=this.fetchedAds.center.image_url;
         }
     }

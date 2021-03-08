@@ -2,7 +2,8 @@
   <div>
     <div class="sidebar-top">
       <div class="img-sidebar-top">
-        <img src="@/assets/img/img-sidebar.jpg" alt="ads top">
+        <AdsRight />
+        <!-- <img src="@/assets/img/img-sidebar.jpg" alt="ads top"> -->
       </div>
       <div class="trending-box sticky-top">
         <div class="trending-list">
@@ -21,9 +22,10 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import AdsRight from '~/components/ads/AdsRight';
   export default {
     components : {
-
+      AdsRight
     },
     computed: {
       ...mapGetters({

@@ -2,7 +2,7 @@
   <section id="slide-top">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-lg-8">
+        <div class="col-sm-12 col-lg-8">
           <div class="box-slide">
             <no-ssr>
               <b-carousel

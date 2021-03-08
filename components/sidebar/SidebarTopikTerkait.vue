@@ -1,5 +1,6 @@
 <template>
   <div class="box-related mb-5 mt-4">
+    <AdsRight class="my-3" />
     <div class="related">
       <div class="heading-article">
         <div class="heading-left float-left">
@@ -26,12 +27,13 @@
 </template>
 
 <script>
+  import AdsRight from '~/components/ads/AdsRight';
   export default {
     props: [
       'listTopikTerkait',
     ],
     components : {
-
+      AdsRight
     },
     data () {
       return {

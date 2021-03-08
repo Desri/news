@@ -2,19 +2,20 @@
   <section id="main">
     <b-container>
       <b-row>
-        <b-col cols="12" sm="8" md="8" lg="8">
+        <b-col cols="12" sm="12" md="8" lg="8">
+          <AdsCenter class="mb-4" />
           <div class="new-article">
             <div class="heading-article mb-0">
               <div class="heading-left float-left">
                 <span class="baging"></span>
                 <h3>Terbaru</h3>
               </div>
-              <div class="heading-right float-right">
+              <!-- <div class="heading-right float-right">
                 <span></span>
                 <p>
                   <a @click="parseJwt()">Lihat lainnya<b-icon-chevron-right></b-icon-chevron-right></a>
                 </p>
-              </div>
+              </div> -->
             </div>
             <div class="list-article">
               <ul class="list-unstyled">
@@ -66,7 +67,7 @@
             </div>
           </div>
         </b-col>
-        <b-col cols="12" sm="4" md="4" lg="4">
+        <b-col cols="12" sm="12" md="4" lg="4">
           <sidebar-terpopuler></sidebar-terpopuler>
         </b-col>
       </b-row>
@@ -76,10 +77,12 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import AdsCenter from '~/components/ads/AdsCenter';
   import SidebarTerpopuler from '~/components/sidebar/SidebarTerpopuler';
   export default {
     components : {
-      
+      AdsCenter,
+      SidebarTerpopuler
     },
     data () {
       return {

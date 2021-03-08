@@ -2,7 +2,7 @@
   <section id="main">
     <b-container>
       <b-row>
-        <b-col cols="12" sm="8" md="8" lg="8">
+        <b-col cols="12" sm="12" md="8" lg="8">
           <div class="new-article">
             <div class="list-article">
               <ul class="list-unstyled">
@@ -34,7 +34,7 @@
             </div>
           </div>
         </b-col>
-        <b-col cols="12" sm="4" md="4" lg="4">
+        <b-col cols="12" sm="12" md="4" lg="4">
           <sidebar-terpopuler></sidebar-terpopuler>
         </b-col>
       </b-row>
