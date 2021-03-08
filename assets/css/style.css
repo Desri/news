@@ -938,6 +938,12 @@ footer .download_apps a img {
   font-weight: 700;
   line-height: 39px;
 }
+@media screen and (max-width: 768px) {
+  .artikel-detail h1 {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+}
 .artikel-detail .box-author {
   overflow: hidden;
 }
@@ -1374,7 +1380,7 @@ footer .download_apps a img {
 }
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
   #slide-top .box-slide .box-img img {
-    height: 290px;
+    height: 350px;
   }
 }
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1385,6 +1391,11 @@ footer .download_apps a img {
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
   #slide-top .box-slide .box-img img {
     height: 400px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #slide-top .box-slide .box-img img {
+    height: 300px;
   }
 }
 #slide-top .box-slide .box-caption {
@@ -1403,19 +1414,19 @@ footer .download_apps a img {
   margin-bottom: 10px;
   color: #ffffff;
 }
-@media (min-width: 700px) and (orientation: landscape) {
+@media (max-width: 700px) and (orientation: landscape) {
+  #slide-top .box-slide .box-caption h2 {
+    font-size: 17px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 667px) and (orientation: landscape) {
   #slide-top .box-slide .box-caption h2 {
     font-size: 17px;
     line-height: 18px;
   }
 }
 @media screen and (max-width: 600px) {
-  #slide-top .box-slide .box-caption h2 {
-    font-size: 17px;
-    line-height: 18px;
-  }
-}
-@media (min-width: 667px) and (orientation: landscape) {
   #slide-top .box-slide .box-caption h2 {
     font-size: 17px;
     line-height: 18px;
@@ -1529,11 +1540,6 @@ footer .download_apps a img {
 #slide-top .box-slide .list-headline .box-headline a:hover {
   text-decoration: none;
 }
-@media screen and (max-width: 600px) {
-  #slide-top .box-slide .box-img img {
-    height: 250px;
-  }
-}
 
 #main .new-article {
   overflow: hidden;
@@ -1605,6 +1611,11 @@ footer .download_apps a img {
   font-size: 24px;
   font-weight: 600;
 }
+@media screen and (max-width: 768px) {
+  #main .new-article .list-article ul li .media-body a h5 {
+    font-size: 18px;
+  }
+}
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
   #main .new-article .list-article ul li .media-body a h5 {
     font-size: 18px;
@@ -1626,7 +1637,7 @@ footer .download_apps a img {
     font-size: 18px !important;
   }
 }
-@media (min-width: 667px) and (orientation: landscape) {
+@media (max-width: 667px) and (orientation: landscape) {
   #main .new-article .list-article ul li .media-body a h5 {
     font-size: 18px !important;
   }
