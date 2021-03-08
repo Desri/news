@@ -15,7 +15,7 @@
         <reccomended :listCategories="fetchedReccomend"></reccomended>
       </div>
       <b-row>
-        <b-col cols="12" sm="12" md="8" lg="8">
+        <b-col cols="12" sm="8" md="8" lg="8">
           <div class="new-article">
             <div class="heading-article">
               <div class="heading-left float-left">
@@ -65,7 +65,7 @@
             </div>
           </div>
         </b-col>
-        <b-col cols="12" sm="12" md="4" lg="4">
+        <b-col cols="12" sm="4" md="4" lg="4">
           <sidebar-terpopuler></sidebar-terpopuler>
         </b-col>
       </b-row>
@@ -90,16 +90,16 @@
         page: 1
       }
     },
+
     computed: {
       ...mapGetters({
         fetchedCategory: 'artikel/category',
         fetchedReccomend: 'artikel/reccomend'
       }),
-
+      
       url() {
-        return `/wp-json/indonews/v1/posts-category/${this.$route.params.slug}/${this.page}`;
+        return `/api/indonews/v1/posts-category/${this.$route.params.slug}/${this.page}`;
       }
-
     },
 
     created() {
@@ -126,7 +126,7 @@
         var $self = this;
         $.ajax({
           type: "GET",
-          url: `/wp-json/indonews/v1/posts-category/${params.slug}/1`,
+          url: `/api/indonews/v1/posts-category/${params.slug}/1`,
           beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
           },
@@ -158,7 +158,6 @@
             });
         }, 500);
       },
-
     }
   }
 </script>
