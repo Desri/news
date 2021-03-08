@@ -63,9 +63,11 @@
                     </div>
                   </div>
                 </li>
+                <infinite-loading v-if="fetchedArtikels.length" spinner="spiral" @infinite="infiniteScroll"></infinite-loading>
               </ul>
             </div>
           </div>
+          
         </b-col>
         <b-col cols="12" sm="12" md="4" lg="4">
           <sidebar-terpopuler></sidebar-terpopuler>
@@ -76,29 +78,42 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex'
+  import axios from 'axios';
   import AdsCenter from '~/components/ads/AdsCenter';
   import SidebarTerpopuler from '~/components/sidebar/SidebarTerpopuler';
   export default {
     components : {
+      axios,
       AdsCenter,
       SidebarTerpopuler
     },
     data () {
       return {
-        noImage: require(`~/assets/img/no_image.png`)
+        noImage: require(`~/assets/img/no_image.png`),
+        page: 1
       }
     },
+
     computed: {
       ...mapGetters({
         fetchedArtikels: 'artikel/artikels'
       }),
-    },
-    async mounted() {
-      if (localStorage.getItem("guest") !== null) {
-        await this.$store.dispatch('artikel/fetchArtikels');
+      url() {
+        return `/api/wp/v2/posts?per_page=10&page=${this.page}&_embed`;
       }
     },
+
+    created() {
+      this.fetchData();
+    },
+
+    async mounted() {
+      if (localStorage.getItem("guest") !== null) {
+        //await this.$store.dispatch('artikel/fetchArtikels');
+      }
+    },
+
     methods: {
       parseJwt () {
         let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLWRldmVsb3BtZW50LmluZG9jaGF0LmNvLmlkIiwiaWF0IjoxNjE0MDQ4MzUzLCJuYmYiOjE2MTQwNDgzNTMsImV4cCI6MTYxNDY1MzE1MywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.xOzHdocLKDhUf98fKJRYWSakqvq3ogT_2V-dmPIjAQ8'
@@ -116,6 +131,52 @@
         }
       },
 
+      ...mapActions({
+        fetchArtikels: 'artikel/fetchArtikels'
+      }),
+      // Infinite loading
+      async fetchData() {
+        let params = {
+          'page' : this.page
+        }
+        let response = await this.fetchArtikels(params)
+
+        // var $self = this;
+        // $.ajax({
+        //   type: "GET",
+        //   url: `/api/wp/v2/posts?per_page=10&page=${this.page}&_embed`,
+        //   beforeSend: function(xhr){
+        //     xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
+        //   },
+        //   success: function(response){
+        //     $self.dataArtikels = response[0]
+        //   }
+        // });
+
+      },
+
+      infiniteScroll($state) {
+        setTimeout(() => {
+          this.page++;
+          axios
+            .get(this.url, {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem("guest")}`
+              },
+            })
+            .then(response => {
+              if (response.data.length > 1) {
+                response.data.forEach(item => this.fetchedArtikels.push(item));
+                $state.loaded();
+              } else {
+                $state.complete();
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }, 500);
+      },
     }
   }
 </script>

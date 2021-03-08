@@ -1,9 +1,9 @@
 export default {
-  async fetchArtikels({ commit }) {
+  async fetchArtikels({ commit }, params) {
     try {
       await $.ajax({
         type: "GET",
-        url: "/api/wp/v2/posts?per_page=10&_embed",
+        url: `/api/wp/v2/posts?per_page=10&page=${params.page}&_embed`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
