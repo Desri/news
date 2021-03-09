@@ -26,7 +26,6 @@
                         {{data._embedded["wp:term"][0][0].name}}
                       </span>
                     </div>
-
                     <div class="box-image-post">
                       <div class="box-no-image mr-4" v-if="!data._embedded[`wp:featuredmedia`]">
                         <div class="bg-no-image" :style="{'background':'url(' + noImage + ')','background-size': 'cover','background-repeat': 'no-repeat','background-position': 'center center'}"></div>
@@ -35,7 +34,6 @@
                         <img :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
                       </div>
                     </div>
-
                   </nuxt-link>
                   <div class="media-body">
                     <a :href="`/read/${data.slug}`">
@@ -67,7 +65,6 @@
               </ul>
             </div>
           </div>
-          
         </b-col>
         <b-col cols="12" sm="12" md="4" lg="4">
           <sidebar-terpopuler></sidebar-terpopuler>
