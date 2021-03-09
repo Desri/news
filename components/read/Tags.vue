@@ -6,8 +6,8 @@
       </div>
       <div class="list-tags">
         <ul>
-          <li v-for="data in listTags">
-            <nuxt-link to="#">
+          <li v-for="data in listTags" :key="data.id">
+            <nuxt-link :to="`/tag/${data.slug}`">
               {{data.name}}
             </nuxt-link>
           </li>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+ import {mapGetters} from 'vuex'
   export default {
     props: [
       'listTags',
@@ -31,9 +32,15 @@
       }
     },
     computed: {
+      ...mapGetters({
+        fetchedTags: 'tags/tags'
+      })
 
     },
     async mounted() {
+      if (localStorage.getItem("guest") !== null) {
+        await this.$store.dispatch('tags/fetchTags');
+      }
       
     },
     methods: {
