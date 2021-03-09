@@ -94,9 +94,6 @@
   import SidebarTopikTerkait from '~/components/sidebar/SidebarTopikTerkait';
   import SidebarTerpopuler from '~/components/sidebar/SidebarTerpopuler';
   export default {
-    components : {
-      
-    },
     head() {
       let dataDetail = this.$store.state.news
       let urlPath = this.$store.state.urlPath
@@ -108,8 +105,9 @@
       return {
         titleTemplate: dataDetail.title.rendered + ' | %s',
         meta: [
-          { hid : 'og:title', name: 'og:title', content: dataDetail.title.rendered },
           { property : 'og:type', content: `Article` },
+          { hid : 'og:title', name: 'og:title', content: dataDetail.title.rendered },
+          { property : "og:description", content: dataDetail.excerpt.rendered.replace(/<[^>]*>?/gm, '') },
           { property : "og:image", content: urlImg },
           { property : "og:image:width", content : "300" },
           { property : "og:image:height", content : "300" },
@@ -118,7 +116,6 @@
     },
     data () {
       return {
-        title : '',
         expression: {},
         expression_good: 0,
         expression_very_good: 0,
@@ -136,12 +133,10 @@
         fetchedTopikTerkait: 'artikel/topikTerkait'
       }),
     },
-
     async fetch({$axios, params ,store, error, req, $http}) {
       const dev = process.env.NODE_ENV !== 'production';
       //const server = dev ? 'http://localhost:3000' : process.env.BASE_API_URL;
       const server = process.env.BASE_API_URL;
-      // const server = dev ? 'http://localhost:3000' : 'https://wordpress-development.channel-enews.com/wp-json';
       let datas = {
         'username' : 'dery',
         'password' : 'NGebbEM9dEGx60DqBJagUjyc'
@@ -151,20 +146,18 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datas)
       };
-      //let getTokes = await fetch(server+`/api/jwt-auth/v1/token`, requestOptions).then(res => res.json())
-      //let urlData = server+`/api/wp/v2/posts?slug=${params.slug}&_embed`
+      // let getTokes = await fetch(server+`/api/jwt-auth/v1/token`, requestOptions).then(res => res.json())
+      // let urlData = server+`/api/wp/v2/posts?slug=${params.slug}&_embed`
       let getTokes = await fetch(server+`jwt-auth/v1/token`, requestOptions).then(res => res.json())
       let urlData = server+`wp/v2/posts?slug=${params.slug}&_embed`
       let token = getTokes.token
       let dataDetail = await fetch(urlData, { headers: {"Authorization" : `Bearer ${token}`} }).then(res => res.json())
       store.commit('SET_NEWS', dataDetail[0])
     },
-
     async mounted() {
       if (localStorage.getItem("guest") !== null) {
         let slug = this.$route.params.slug;
         await this.$store.dispatch('artikel/fetchDetailArtikel', slug)
-        this.title = this.fetchedDetail.title.rendered
         await this.$store.dispatch('artikel/fetchTopikTerkait', this.fetchedDetail.id);
         await this.$store.dispatch('tags/fetchListTag', this.fetchedDetail.tags)
         let id = this.fetchedDetail.id

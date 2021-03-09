@@ -14,7 +14,7 @@ export default {
   SET_CATEGORY(state, category) {
     state.category = category
   },
-  SET_RECCOMEND(state, reccomend) {
+  SET_RECOMMEND(state, reccomend) {
     state.reccomend = reccomend
   },
   SET_JUDUL_CATEGORY(state, judulCategory) {

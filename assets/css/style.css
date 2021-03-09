@@ -117,11 +117,6 @@ img {
   margin-left: 15px;
   margin-bottom: 0px;
 }
-@media screen and (max-width: 768px) {
-  .heading-article .heading-left h3 {
-    font-size: 18px;
-  }
-}
 .heading-article .heading-right {
   margin-bottom: 20px;
 }
@@ -376,7 +371,7 @@ header .navbar-mobile {
     height: 37px;
     margin-top: 7.5px;
     line-height: 37px;
-    margin-left: 10px;
+    margin-left: 15px;
     text-align: center;
     margin-right: 7.5px;
     margin-bottom: 7.5px;
@@ -583,11 +578,6 @@ footer .download_apps a img {
   font-weight: 700;
   margin-left: 15px;
 }
-@media screen and (max-width: 768px) {
-  .sidebar-top .trending-box .trending-list h3 {
-    font-size: 18px;
-  }
-}
 .sidebar-top .trending-box .trending-list ul {
   list-style: none;
   padding-left: 15px;
@@ -607,11 +597,6 @@ footer .download_apps a img {
   font-size: 21px;
   margin-right: 5px;
   color: #f56565;
-}
-@media screen and (max-width: 1023px) {
-  .sidebar-top {
-    display: none;
-  }
 }
 
 .populer-box {
@@ -660,18 +645,25 @@ footer .download_apps a img {
   line-height: 23px;
   margin-bottom: 0px;
 }
-@media screen and (max-width: 1024px) {
-  .populer-box .populer-list ul li a p {
-    width: 75%;
-  }
-}
-@media screen and (max-width: 320px) {
-  .populer-box .populer-list ul li a p {
-    font-size: 16px;
-  }
-}
 .populer-box .populer-list ul li:last-child {
   border-bottom: 0px;
+}
+@media screen and (max-width: 600px) {
+  .populer-box .populer-list ul {
+    padding-left: 0px;
+  }
+  .populer-box .populer-list ul li a p {
+    line-height: 22px;
+  }
+  .populer-box .populer-list ul li a .num {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
+  }
+  .populer-box .populer-list ul li a .num span {
+    top: 0px;
+    font-size: 15px;
+  }
 }
 
 .not-found svg {
@@ -1037,6 +1029,7 @@ footer .download_apps a img {
 @media screen and (max-width: 1075px) {
   .artikel-detail .content-detail .sticky-share {
     margin: 0px;
+    width: 100%;
     position: inherit;
   }
   .artikel-detail .content-detail .sticky-share .share p {
@@ -1274,8 +1267,9 @@ footer .download_apps a img {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  max-height: 47px;
-  height: 47px;
+  max-height: 46px;
+  height: 46px;
+  line-height: 23px;
   overflow: hidden;
   display: -webkit-box !important;
 }
@@ -1414,34 +1408,10 @@ footer .download_apps a img {
   margin-bottom: 10px;
   color: #ffffff;
 }
-@media (max-width: 700px) and (orientation: landscape) {
-  #slide-top .box-slide .box-caption h2 {
-    font-size: 17px;
-    line-height: 18px;
-  }
-}
-@media (max-width: 667px) and (orientation: landscape) {
-  #slide-top .box-slide .box-caption h2 {
-    font-size: 17px;
-    line-height: 18px;
-  }
-}
 @media screen and (max-width: 600px) {
   #slide-top .box-slide .box-caption h2 {
     font-size: 17px;
     line-height: 18px;
-  }
-}
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #slide-top .box-slide .box-caption h2 {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-}
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
-  #slide-top .box-slide .box-caption h2 {
-    font-size: 26px;
-    line-height: 1.2;
   }
 }
 #slide-top .box-slide .box-caption .caption-info {
@@ -1540,6 +1510,11 @@ footer .download_apps a img {
 #slide-top .box-slide .list-headline .box-headline a:hover {
   text-decoration: none;
 }
+@media screen and (max-width: 600px) {
+  #slide-top .box-slide .box-img img {
+    height: 190px;
+  }
+}
 
 #main .new-article {
   overflow: hidden;
@@ -1582,7 +1557,7 @@ footer .download_apps a img {
 }
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li.media .box-image-post {
-    width: 140px;
+    width: 130px;
   }
   #main .new-article .list-article ul li.media .box-image-post .mr-4 {
     margin-right: 15px !important;
@@ -1623,12 +1598,13 @@ footer .download_apps a img {
 }
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li .media-body a h5 {
-    font-size: 17px;
+    font-size: 16px;
     text-overflow: ellipsis;
     display: -webkit-box !important;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    height: 64px;
+    height: 62px;
+    max-height: 62px;
     overflow: hidden;
   }
 }
@@ -1675,8 +1651,8 @@ footer .download_apps a img {
 }
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li .media-body .box-user .box-avatar-creator a img {
-    width: 23px;
-    height: 23px;
+    width: 21px;
+    height: 21px;
     margin-right: 5px !important;
   }
 }
@@ -1706,13 +1682,8 @@ footer .download_apps a img {
   color: #a7a7a7;
 }
 @media screen and (max-width: 600px) {
-  #main .new-article .list-article ul li .media-body .box-user .box-post-date {
-    display: none;
-  }
-}
-@media screen and (max-width: 667px) and (orientation: landscape) {
-  #main .new-article .list-article ul li .media-body .box-user .box-post-date {
-    display: none;
+  #main .new-article .list-article ul li .media-body .box-user .box-post-date span {
+    font-size: 11px;
   }
 }
 #main .new-article .list-article ul li .media-body .box-user .box-sperator {

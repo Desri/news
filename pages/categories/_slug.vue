@@ -1,18 +1,9 @@
 <template>
   <section id="main">
     <b-container>
-      <!-- <b-row class="mb-4">
-        <b-col cols="12" sm="8" md="8" lg="8">
-          <b-breadcrumb v-if="fetchedCategory[0]">
-            <b-breadcrumb-item href="/">
-              Home
-            </b-breadcrumb-item>
-            <b-breadcrumb-item active>{{titlePage}}</b-breadcrumb-item>
-          </b-breadcrumb>
-        </b-col>
-      </b-row> -->
-      <div class="recomendation mb-4" v-if="fetchedReccomend.length != 0">
-        <reccomended :listCategories="fetchedReccomend"></reccomended>
+      <breadcrumb  v-if="fetchedCategory[0]" :dataTitle="titlePage"></breadcrumb>
+      <div class="recomendation mb-4">
+        <reccomended :listCategories="dataReccomend"></reccomended>
       </div>
       <b-row>
         <b-col cols="12" sm="8" md="8" lg="8">
@@ -20,14 +11,12 @@
             <div class="heading-article">
               <div class="heading-left float-left">
                 <span class="baging"></span>
-                <!-- <h3>Terbaru di {{titlePage}}</h3> -->
-                <h3>Terbaru</h3>
+                <h3>Terbaru di {{titlePage}}</h3>
               </div>
             </div>
             <div class="list-article">
               <ul class="list-unstyled">
-
-                <li class="media py-3" v-for="(data, index) in dataCategory" :key="index">
+                <li class="media py-3" v-for="(data, index) in fetchedCategory" :key="index">
                   <a :href="`/read/${data.post_slug}`">
                     <div class="box-label">
                       <span class="label-categories" v-if="data.category">
@@ -60,7 +49,7 @@
                     </div>
                   </div>
                 </li>
-                <infinite-loading v-if="dataCategory.length" spinner="spiral" @infinite="infiniteScroll"></infinite-loading>
+                <infinite-loading v-if="fetchedCategory.length" spinner="spiral" @infinite="infiniteScroll"></infinite-loading>
               </ul>
             </div>
           </div>
@@ -76,6 +65,7 @@
 <script>
   import {mapActions,mapGetters} from 'vuex'
   import axios from 'axios';
+  import Breadcrumb from '~/components/categories/Breadcrumb';
   import Reccomended from '~/components/categories/Reccomended';
   import SidebarTerpopuler from '~/components/sidebar/SidebarTerpopuler';
   export default {
@@ -85,57 +75,44 @@
     data () {
       return {
         titlePage: '',
-        dataCategory: [],
         noImage: require(`~/assets/img/no_image.png`),
-        page: 1
+        page: 1,
+        dataReccomend: []
       }
     },
-
     computed: {
       ...mapGetters({
         fetchedCategory: 'artikel/category',
         fetchedReccomend: 'artikel/reccomend'
       }),
-      
       url() {
-        return `/api/indonews/v1/posts-category/${this.$route.params.slug}/${this.page}`;
-      }
+        return `/wp-json/indonews/v1/posts-category/${this.$route.params.slug}/${this.page}`;
+      },
     },
-
     created() {
       this.fetchData();
     },
-
     async mounted() {
       if (localStorage.getItem("guest") !== null) {
         let slug = this.$route.params.slug
         await this.$store.dispatch('artikel/fetchReccomend', slug)
+        this.titlePage = this.fetchedReccomend[0].category.name
+        if (this.fetchedReccomend.length > 0) {
+          this.dataReccomend = this.fetchedReccomend
+        }
       }
     },
-
     methods: {
       ...mapActions({
         fetchCategories: 'artikel/fetchCategory'
       }),
-
       async fetchData() {
         let params = {
           'slug' : this.$route.params.slug,
           'page' : this.page
         }
-        var $self = this;
-        $.ajax({
-          type: "GET",
-          url: `/api/indonews/v1/posts-category/${params.slug}/1`,
-          beforeSend: function(xhr){
-            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
-          },
-          success: function(response){
-            $self.dataCategory = response[0]
-          }
-        });
+        let response = await this.fetchCategories(params);
       },
-
       infiniteScroll($state) {
         setTimeout(() => {
           this.page++;
@@ -147,7 +124,7 @@
             })
             .then(response => {
               if (response.data.length > 1) {
-                response.data[0].forEach(item => this.dataCategory.push(item));
+                response.data[0].forEach(item => this.fetchedCategory.push(item));
                 $state.loaded();
               } else {
                 $state.complete();

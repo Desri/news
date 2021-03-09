@@ -2,7 +2,6 @@
   <div>
     <div class="list-expresion my-4">
       <ul>
-        <!-- <h1>{{listExpressions}}</h1> -->
         <li>
           <a href="javascript:void(0)" @click="onShowNitice('suka', 'srv_good')">
             <img src="@/assets/img/emoticon/suka.svg" class="img-fluid">
@@ -77,7 +76,7 @@
       
     },
     async mounted() {
-    
+      
     },
     methods: {
       ...mapActions({

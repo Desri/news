@@ -8,7 +8,7 @@
     </div>
     <div class="section-recomendation">
       <b-row>
-        <b-col cols="6" lg="" v-for="data in listCategories" :key="data.id">
+        <b-col cols="6" lg="" v-for="data in listCategories" :key="data.ID">
           <div class="box-recomendation">
             <a :href="`/read/${data.post_slug}`">
               <img v-if="data.featured_image == null || data.featured_image == ''" class="img-fluid" src="@/assets/img/no_image.png"/>

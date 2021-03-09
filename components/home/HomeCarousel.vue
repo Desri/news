@@ -11,7 +11,7 @@
                 style="text-shadow: 1px 1px 2px #333;"
               >
                 <div class="box-img" v-for="data in fetchHeadline" :key="data.id">
-                  <nuxt-link :to="`/read/${data.slug}`">
+                  <a :href="`/read/${data.slug}`">
                     <b-carousel-slide :img-src="data.featured_image[0]">
                       <div class="box-caption">
                         <h2>{{data.title}}</h2>
@@ -26,7 +26,7 @@
                         </div> -->
                       </div>
                     </b-carousel-slide>
-                  </nuxt-link>
+                  </a>
                 </div>
               </b-carousel>
             </no-ssr>
@@ -50,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="d-none d-sm-block col-sm-4 col-lg-4">
+        <div class="d-none d-sm-none d-lg-block col-sm-4 col-lg-4">
           <trending-topic></trending-topic>
         </div>
       </div>

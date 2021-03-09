@@ -1,9 +1,9 @@
 export default {
-  async fetchArtikels({ commit }, params) {
+  async fetchArtikels({ commit }) {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/wp/v2/posts?per_page=10&page=${params.page}&_embed`,
+        url: "/api/wp/v2/posts?per_page=10&_embed",
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -114,7 +114,7 @@ export default {
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
         success: function(response){
-          commit('SET_RECCOMEND', response)
+          commit('SET_RECOMMEND', response)
         }
       });
     } catch (error) {

@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 Vue.mixin({
   computed: {
-    
+    tokens() { return localStorage.getItem("guest") },
   },
 
   methods: {
@@ -73,12 +73,15 @@ Vue.mixin({
     getData(url) {
       return new Promise(
         (resolve, reject) => {
-          this.$axios.$get(url).then( (response) => {
-            if (response.data !== undefined) {
-              resolve(response.data)
+          this.$axios.$get(url, {
+            headers: {
+              'Authorization': 'Bearer ' + this.tokens
+            }
+          }).then( (response) => {
+            if (response !== undefined) {
+              resolve(response)
             }
             reject(response.message)
-            console.log(response.data)
           }, (error) => {
             reject(error.response.data.message);
           })

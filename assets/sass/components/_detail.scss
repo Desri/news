@@ -4,7 +4,7 @@
 		font-size: 38px;
 	    font-weight: 700;
 	    line-height: 39px;
-		@media screen and (max-width: 768px) {
+	    @media screen and (max-width: 768px) {
 			font-size: 25px;
 			line-height: 1.3;
 		}
@@ -118,6 +118,7 @@
 			@media screen and (max-width: 1075px) {
 	    		// display: none;
 	    		margin: 0px;
+	    		width: 100%;
 	    		position: inherit;
 	    		.share {
 	    			p {
@@ -404,8 +405,9 @@
 							text-overflow: ellipsis;
 						    -webkit-line-clamp: 2;
 						    -webkit-box-orient: vertical;
-						    max-height: 47px;
-						    height: 47px;
+						    max-height: 46px;
+						    height: 46px;
+						    line-height: 23px;
 						    overflow: hidden;
 						    display: -webkit-box !important;
 						}

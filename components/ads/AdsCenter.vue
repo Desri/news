@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="this.url" class="img-fluid" alt="ads-center">
+        <img :src="this.url" class="img-fluid">
     </div>
 </template>
 
@@ -15,20 +15,16 @@ export default {
             url: ''
         }
     },
-
     computed: {
         ...mapGetters({
             fetchedAds: 'ads/showAds'
         }),
     },
-
     async mounted() {
         if(localStorage.getItem("guest") !== null) {
             await this.$store.dispatch('ads/fetchAds');
-            console.log(this.fetchedAds.center)
-            this.url=this.fetchedAds.center.image_url;
+            this.url = this.fetchedAds.center.image_url;
         }
     }
-
 }
 </script>

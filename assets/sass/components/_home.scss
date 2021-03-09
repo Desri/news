@@ -43,25 +43,9 @@
 			    text-align: left;
 			    margin-bottom: 10px;
 			    color: $color-white;
-				@media (max-width: 700px) and (orientation: landscape) {
-					font-size: 17px;
-					line-height: 18px;
-				}
-				@media (max-width: 667px) and (orientation: landscape) {
-					font-size: 17px;
-					line-height: 18px;
-				}
 			    @media screen and (max-width: 600px) {
 			    	font-size: 17px;
 				    line-height: 18px;
-				}
-				@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-					font-size: 24px;
-					line-height: 1.2;
-				}
-				@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape) {
-					font-size: 26px;
-					line-height: 1.2;
 				}
 			}
 			.caption-info {
@@ -156,6 +140,15 @@
 		    }
 		}
 	}
+	@media screen and (max-width: 600px) {
+		.box-slide {
+			.box-img {
+				img {
+					height: 190px;
+				}
+			}
+		}
+	}
 }
 
 #main {
@@ -199,7 +192,7 @@
 	    						}
 	    					}
 	    					@media screen and (max-width: 600px) {
-    							width: 140px;
+    							width: 130px;
     							.mr-4 {
     								margin-right: 15px !important;
     							}
@@ -216,7 +209,7 @@
     						width: 190px;
     						height: 150px;
     						max-height: 100%;
-							@media only screen and (min-device-width: 640) and (max-device-width: 360) and (orientation:landscape) {
+    						@media only screen and (min-device-width: 640) and (max-device-width: 360) and (orientation:landscape) {
 								height: 140px;
 							}
     						@media screen and (max-width: 600px) {
@@ -230,22 +223,23 @@
     							color: #1d3557;
 							    font-size: 24px;
 							    font-weight: 600;
-								@media screen and (max-width: 768px) {
+							    @media screen and (max-width: 768px) {
 									font-size: 18px;
 								}
 								@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
 									font-size: 18px;
 								}
 							    @media screen and (max-width: 600px) {
-							    	font-size: 17px;
+							    	font-size: 16px;
 								    text-overflow: ellipsis;
 								    display: -webkit-box !important;
 								    -webkit-line-clamp: 3;
 								    -webkit-box-orient: vertical;
-								    height: 64px;
+								    height: 62px;
+								    max-height: 62px;
 								    overflow: hidden;
 							    }
-								// iPhone X
+							    // iPhone X
 								@media only screen and (min-device-width : 375px) and (min-device-width : 812px) and (orientation:landscape)  {
 									font-size: 18px!important;
 								}
@@ -282,8 +276,8 @@
 									    height: 25px;
 									    border-radius: 50%;
 									    @media screen and (max-width: 600px) {
-									    	width: 23px;
-									    	height: 23px;
+									    	width: 21px;
+									    	height: 21px;
 									    	margin-right: 5px !important;
 									    }
 	    							}
@@ -314,11 +308,10 @@
 								    }
     							}
     							@media screen and (max-width: 600px) {
-							    	display: none;
+							    	span {
+							    		font-size: 11px;
+							    	}
 							    }
-								@media screen and (max-width: 667px) and (orientation: landscape) {
-									display: none;
-								}
     						}
     						.box-sperator {
     							float: left;

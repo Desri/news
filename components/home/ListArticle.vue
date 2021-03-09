@@ -20,7 +20,7 @@
             <div class="list-article">
               <ul class="list-unstyled">
                 <li class="media py-3" v-for="data in fetchedArtikels" :key="data.id">
-                  <nuxt-link :to="`/read/${data.slug}`">
+                  <a :href="`/read/${data.slug}`">
                     <div class="box-label">
                       <span class="label-categories">
                         {{data._embedded["wp:term"][0][0].name}}
@@ -34,7 +34,7 @@
                         <img :src="data._embedded[`wp:featuredmedia`][0].source_url" class="mr-4" :alt="data.title.rendered" />
                       </div>
                     </div>
-                  </nuxt-link>
+                  </a>
                   <div class="media-body">
                     <a :href="`/read/${data.slug}`">
                       <h5 class="mt-0">{{stripHtml(data.title.rendered)}}</h5>
@@ -100,17 +100,14 @@
         return `/api/wp/v2/posts?per_page=10&page=${this.page}&_embed`;
       }
     },
-
     created() {
       this.fetchData();
     },
-
     async mounted() {
       if (localStorage.getItem("guest") !== null) {
         //await this.$store.dispatch('artikel/fetchArtikels');
       }
     },
-
     methods: {
       parseJwt () {
         let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLWRldmVsb3BtZW50LmluZG9jaGF0LmNvLmlkIiwiaWF0IjoxNjE0MDQ4MzUzLCJuYmYiOjE2MTQwNDgzNTMsImV4cCI6MTYxNDY1MzE1MywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.xOzHdocLKDhUf98fKJRYWSakqvq3ogT_2V-dmPIjAQ8'
@@ -127,7 +124,6 @@
           console.log('false')
         }
       },
-
       ...mapActions({
         fetchArtikels: 'artikel/fetchArtikels'
       }),
@@ -137,21 +133,7 @@
           'page' : this.page
         }
         let response = await this.fetchArtikels(params)
-
-        // var $self = this;
-        // $.ajax({
-        //   type: "GET",
-        //   url: `/api/wp/v2/posts?per_page=10&page=${this.page}&_embed`,
-        //   beforeSend: function(xhr){
-        //     xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
-        //   },
-        //   success: function(response){
-        //     $self.dataArtikels = response[0]
-        //   }
-        // });
-
       },
-
       infiniteScroll($state) {
         setTimeout(() => {
           this.page++;
@@ -170,7 +152,7 @@
               }
             })
             .catch(err => {
-              console.log(err);
+              $state.complete();
             });
         }, 500);
       },

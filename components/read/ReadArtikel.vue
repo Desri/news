@@ -30,7 +30,7 @@
       'data',
     ],
     components : {
-      StickyShare
+      
     },
     data () {
       return {

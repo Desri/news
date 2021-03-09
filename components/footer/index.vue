@@ -64,10 +64,10 @@
         <b-col cols="12" md="3" lg="3">
           <div class="download_apps">
             <h3>Download</h3>
-            <a href="#" class="pr-1 px-md-2">
+            <a href="#" class="pr-1 pr-md-2">
               <img src="@/assets/img/icon-apps/google_play.jpg"/>
             </a>
-            <a href="#" class="pl-1 p-md-2">
+            <a href="#" class="pl-1 pl-md-2">
               <img src="@/assets/img/icon-apps/apps_store.jpg"/>
             </a>
           </div>

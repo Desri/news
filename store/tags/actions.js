@@ -47,16 +47,16 @@ export default {
       throw error
     }
   },
-  async fetchFilterTags({ commit }, slug) {
+  async fetchFilterTags({ commit }, params) {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/wp/v2/posts?filter[tags]=${slug}&_embed`,
+        url: `/api/indonews/v1/posts-tag-slug/${params.slug}/${params.page}`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
         success: function(response){
-          commit('SET_FILTER_TAGS', response)
+          commit('SET_FILTER_TAGS', response[0])
         }
       });
     } catch (error) {

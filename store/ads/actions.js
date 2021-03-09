@@ -9,7 +9,6 @@ export default {
           },
           success: function(response){
             commit('SET_ADS', response)
-            console.log(response)
           }
         });
       } catch (error) {

@@ -6,14 +6,8 @@
           <div class="nav-trending">
             <ul>
               <li><b-icon-lightning></b-icon-lightning></li>
-              <!-- <li v-for="data in fetchedTags" :key="data.id">
-                <a href="#">{{data.name}}</a>
-              </li> -->
-              <li>
-                <nuxt-link :to="`/tag/best-lifestyle-of-2020`">Best Lifestyle Of 2020</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link :to="`/tag/the-best-of-2021`">The best of 2021</nuxt-link>
+              <li v-for="data in fetchedTopTopik" :key="data.ID">
+                <nuxt-link :to="`/tag/${data.slug}`">{{data.title}}</nuxt-link>
               </li>
               <li><b-icon-lightning></b-icon-lightning></li>
             </ul>
@@ -37,12 +31,14 @@
     },
     computed: {
       ...mapGetters({
-        fetchedTags: 'tags/tags'
+        fetchedTags: 'tags/tags',
+        fetchedTopTopik: 'menu/topTopic'
       }),
     },
     async mounted() {
       if (localStorage.getItem("guest") !== null) {
         await this.$store.dispatch('tags/fetchTags');
+        await this.$store.dispatch('menu/fetchTopTopic');
       }
     },
     methods: {

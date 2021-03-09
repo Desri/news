@@ -22,7 +22,7 @@ export default {
     ],
     script: [
       { src:'//unpkg.com/vue@latest/dist/vue.min.js', ssr: false, defer: true},
-      { src:'//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js', ssr: false, defer: true},
+      { src:'//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js', ssr: false, defer: true}
     ]
   },
 
