@@ -2,7 +2,7 @@
   <section id="main">
     <b-container>
       <b-row>
-        <b-col cols="12" sm="12" md="8" lg="8">
+        <b-col cols="12" sm="12" md="12" lg="8">
           <AdsCenter class="mb-4" />
           <div class="new-article">
             <div class="heading-article mb-0">
@@ -61,12 +61,14 @@
                     </div>
                   </div>
                 </li>
-                <infinite-loading v-if="fetchedArtikels.length" spinner="spiral" @infinite="infiniteScroll"></infinite-loading>
+                <infinite-loading v-if="fetchedArtikels.length" spinner="waveDots" @infinite="infiniteScroll">
+                  <span slot="no-more"></span>
+                </infinite-loading>
               </ul>
             </div>
           </div>
         </b-col>
-        <b-col cols="12" sm="12" md="4" lg="4">
+        <b-col cols="12" sm="12" md="12" lg="4">
           <sidebar-terpopuler></sidebar-terpopuler>
         </b-col>
       </b-row>
@@ -97,7 +99,7 @@
         fetchedArtikels: 'artikel/artikels'
       }),
       url() {
-        return `/api/wp/v2/posts?per_page=10&page=${this.page}&_embed`;
+        return `/wp-json/wp/v2/posts?per_page=10&page=${this.page}&_embed`;
       }
     },
     created() {

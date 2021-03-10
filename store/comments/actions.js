@@ -3,7 +3,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/wp/v2/comments?post=${id}`,
+        url: `/wp-json/wp/v2/comments?post=${id}`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -19,7 +19,7 @@ export default {
     try {
       await $.ajax({
         type: "POST",
-        url: `/api/wp/v2/comments`,
+        url: `/wp-json/wp/v2/comments`,
         data: payload,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);

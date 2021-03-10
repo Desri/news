@@ -3,7 +3,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: "/api/wp/v2/posts?per_page=10&_embed",
+        url: "/wp-json/wp/v2/posts?per_page=10&_embed",
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -19,7 +19,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/wp/v2/posts?slug=${slug}&_embed`,
+        url: `/wp-json/wp/v2/posts?slug=${slug}&_embed`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -27,7 +27,7 @@ export default {
           commit('SET_DETAIL', response[0])
           $.ajax({
             type: "GET",
-            url: `/api/indonews/v1/viewspost/${response[0].id}`,
+            url: `/wp-json/indonews/v1/viewspost/${response[0].id}`,
             beforeSend: function(xhr){
               xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
             },
@@ -45,7 +45,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/popular-posts`,
+        url: `/wp-json/indonews/v1/popular-posts`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -61,7 +61,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/related-posts/${id_post}`,
+        url: `/wp-json/indonews/v1/related-posts/${id_post}`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -77,7 +77,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/posts-category/${params.slug}/1`,
+        url: `/wp-json/indonews/v1/posts-category/${params.slug}/1`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -93,7 +93,7 @@ export default {
   //   try {
   //     await $.ajax({
   //       type: "GET",
-  //       url: `/api/indonews/v1/posts-category/${slug}/1`,
+  //       url: `/wp-json/indonews/v1/posts-category/${slug}/1`,
   //       beforeSend: function(xhr){
   //         xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
   //       },
@@ -109,7 +109,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/recommend/${slug}`,
+        url: `/wp-json/indonews/v1/recommend/${slug}`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -125,7 +125,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/wp/v2/categories/${slug}`,
+        url: `/wp-json/wp/v2/categories/${slug}`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -141,7 +141,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/headline`,
+        url: `/wp-json/indonews/v1/headline`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -157,7 +157,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/subheadline`,
+        url: `/wp-json/indonews/v1/subheadline`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },

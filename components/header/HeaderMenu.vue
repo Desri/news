@@ -13,9 +13,9 @@
           <b-navbar-nav class="ml-autos ml-3">
             <div v-for="data in menuCategory" :key="data.id">
               <li class="nav-item">
-                <nuxt-link :to="`/categories/${data.slug}`" class="nav-link">
+                <a :href="`/categories/${data.slug}`" class="nav-link">
                   {{data.title}}
-                </nuxt-link>
+                </a>
               </li>
             </div>
             <!-- <div v-for="data in fetchedMenus" :key="data.id">
@@ -57,13 +57,6 @@
                     </a>
                   </li>
                 </div>
-                <!-- <div v-for="data in fetchedMenus" :key="data.id" class="menu-mobile">
-                  <li>
-                    <a href="javascript:void(0)" v-if="data.type != 'custom' && data.object != 'category'" @click="goToPage(data.object, data.object_id)">
-                      {{data.title}}
-                    </a>
-                  </li>
-                </div> -->
               </ul>
             </div>
           </b-col>
@@ -108,16 +101,6 @@
       }
     },
     methods: {
-      goToPage(category, id) {
-        if (category == 'category') {
-          this.$router.push(`/category/${id}`)
-        }else if (category == 'page') {
-          this.$router.push(`/page/${id}`)
-        }else {
-          this.$router.push(`/`)
-        }
-        this.onShowMenu()
-      },
       onShowMenu() {
         this.menuMobile = !this.menuMobile;
         let el1 = document.getElementsByTagName("BODY")[0];

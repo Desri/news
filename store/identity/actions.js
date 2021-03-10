@@ -3,7 +3,7 @@ export default {
   	try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/identity`,
+        url: `/wp-json/indonews/v1/identity`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },

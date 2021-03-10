@@ -154,6 +154,10 @@ img {
   text-decoration: none;
 }
 
+.loading-wave-dots .wave-item {
+  background: #fc9d9d !important;
+}
+
 /** Scroll To Top **/
 .scroll-top {
   right: 40px;
@@ -863,6 +867,9 @@ footer .download_apps a img {
   text-decoration: none;
 }
 
+.recomendation {
+  border-bottom: 2px solid #ebebeb;
+}
 .recomendation .box-recomendation a:hover {
   text-decoration: none;
 }
@@ -1608,9 +1615,9 @@ footer .download_apps a img {
     overflow: hidden;
   }
 }
-@media only screen and (min-device-width: 375px) and (min-device-width: 812px) and (orientation: landscape) {
+@media only screen and (min-width: 375px) and (max-width: 991px) and (orientation: landscape) {
   #main .new-article .list-article ul li .media-body a h5 {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 }
 @media (max-width: 667px) and (orientation: landscape) {
@@ -1635,6 +1642,11 @@ footer .download_apps a img {
 @media screen and (max-width: 600px) {
   #main .new-article .list-article ul li .media-body p {
     display: none !important;
+  }
+}
+@media only screen and (min-width: 375px) and (max-width: 991px) and (orientation: landscape) {
+  #main .new-article .list-article ul li .media-body p {
+    font-size: 15px;
   }
 }
 #main .new-article .list-article ul li .media-body .box-user {

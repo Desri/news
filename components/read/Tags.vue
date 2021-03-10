@@ -7,9 +7,9 @@
       <div class="list-tags">
         <ul>
           <li v-for="data in listTags">
-            <nuxt-link to="#">
+            <a :href="`/tag/${data.slug}`">
               {{data.name}}
-            </nuxt-link>
+            </a>
           </li>
         </ul>
       </div>

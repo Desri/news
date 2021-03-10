@@ -3,7 +3,7 @@ export default {
     try {
       await $.ajax({
         type: "GET",
-        url: `/api/indonews/v1/get-survey-post/${id}`,
+        url: `/wp-json/indonews/v1/get-survey-post/${id}`,
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);
         },
@@ -19,7 +19,7 @@ export default {
     try {
       await $.ajax({
         type: "POST",
-        url: `/api/indonews/v1/survey-post/${payload.post}`,
+        url: `/wp-json/indonews/v1/survey-post/${payload.post}`,
         data: {response_status: payload.response_status},
         beforeSend: function(xhr){
           xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("guest")}`);

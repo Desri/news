@@ -39,7 +39,10 @@
                     </div>
                   </div>
                 </li>
-                <infinite-loading v-if="fetchedFilterTags.length" spinner="spiral" @infinite="infiniteScroll"></infinite-loading>
+                <infinite-loading v-if="fetchedFilterTags.length" spinner="waveDots" @infinite="infiniteScroll">
+                  <span slot="no-more"></span>
+                  <span slot="no-results"></span>
+                </infinite-loading>
               </ul>
             </div>
           </div>

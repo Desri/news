@@ -9,7 +9,7 @@
                 <a href="/">Home</a>
               </li>
               <li class="breadcrumb-item">
-                <nuxt-link v-if="fetchedDetail._embedded" :to="`/categories/${fetchedDetail._embedded[`wp:term`][0][0].slug}`">{{fetchedDetail._embedded["wp:term"][0][0].name}}</nuxt-link>
+                <a v-if="fetchedDetail._embedded" :href="`/categories/${fetchedDetail._embedded[`wp:term`][0][0].slug}`">{{fetchedDetail._embedded["wp:term"][0][0].name}}</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page" v-if="fetchedDetail.title">{{stripHtml(fetchedDetail.title.rendered)}}</li>
             </ol>

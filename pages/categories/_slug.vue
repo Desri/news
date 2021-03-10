@@ -2,7 +2,7 @@
   <section id="main">
     <b-container>
       <breadcrumb  v-if="fetchedCategory[0]" :dataTitle="titlePage"></breadcrumb>
-      <div class="recomendation mb-4">
+      <div class="recomendation mb-4 pb-3">
         <reccomended :listCategories="dataReccomend"></reccomended>
       </div>
       <b-row>
@@ -49,7 +49,10 @@
                     </div>
                   </div>
                 </li>
-                <infinite-loading v-if="fetchedCategory.length" spinner="spiral" @infinite="infiniteScroll"></infinite-loading>
+                <infinite-loading v-if="fetchedCategory.length" spinner="waveDots" @infinite="infiniteScroll">
+                  <span slot="no-more"></span>
+                  <span slot="no-results"></span>
+                </infinite-loading>
               </ul>
             </div>
           </div>

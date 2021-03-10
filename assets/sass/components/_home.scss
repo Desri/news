@@ -239,9 +239,8 @@
 								    max-height: 62px;
 								    overflow: hidden;
 							    }
-							    // iPhone X
-								@media only screen and (min-device-width : 375px) and (min-device-width : 812px) and (orientation:landscape)  {
-									font-size: 18px!important;
+								@media only screen and (min-width : 375px) and (max-width : 991px) and (orientation:landscape)  {
+									font-size: 18px;
 								}
 								@media (max-width: 667px) and (orientation: landscape) {
 									font-size: 18px!important;
@@ -263,6 +262,9 @@
 						    display: -webkit-box !important;
 						    @media screen and (max-width: 600px) {
 								display: none !important;
+							}
+							@media only screen and (min-width : 375px) and (max-width : 991px) and (orientation:landscape)  {
+								font-size: 15px;
 							}
     					}
     					.box-user {

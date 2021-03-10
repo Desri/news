@@ -3,7 +3,7 @@ export default {
     try {
       await $.ajax({
         type: "POST",
-        url: "/api/jwt-auth/v1/token",
+        url: "/wp-json/jwt-auth/v1/token",
         data: payload,
         success: function(msg){
           localStorage.setItem("guest", `${msg.token}`);

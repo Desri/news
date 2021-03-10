@@ -51,7 +51,7 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: '/api/jwt-auth/v1/token',
+            url: '/wp-json/jwt-auth/v1/token',
             method: 'post',
             propertyName: 'token'
           },
@@ -78,14 +78,14 @@ export default {
   */
   axios: {
     //baseURL: process.env.BASE_API_URL,
-    proxy: true,
+    proxy: false,
     proxyHeaders: false,
     credentials: false,
   },
 
-  proxy: {
-    '/api/': { target: process.env.BASE_API_URL, pathRewrite: {'^/api/' : ''}, changeOrigin: true },
-  },
+  // proxy: {
+  //   '/api/': { target: process.env.BASE_API_URL, pathRewrite: {'^/api/' : ''}, changeOrigin: true },
+  // },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
