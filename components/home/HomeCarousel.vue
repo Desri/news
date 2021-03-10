@@ -11,19 +11,20 @@
                 style="text-shadow: 1px 1px 2px #333;"
               >
                 <div class="box-img" v-for="data in fetchHeadline" :key="data.id">
+                  <!-- <span>{{data.category[0].cat_name}}</span> -->
                   <a :href="`/read/${data.slug}`">
                     <b-carousel-slide :img-src="data.featured_image[0]">
                       <div class="box-caption">
                         <h2>{{data.title}}</h2>
-                        <!-- <div class="caption-info">
-                          <div class="caption-date">
+                        <div class="caption-info">
+                          <!-- <div class="caption-date">
                             <i class="fa fa-calendar-o" aria-hidden="true"></i> December 17, 2020
-                          </div>
-                          <div class="caption-seperator">|</div>
+                          </div> -->
+                          <!-- <div class="caption-seperator">|</div>
                           <div class="caption-comment">
                             <i class="fa fa-comment-o" aria-hidden="true"></i> 4 Comments
-                          </div>
-                        </div> -->
+                          </div> -->
+                        </div>
                       </div>
                     </b-carousel-slide>
                   </a>
