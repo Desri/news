@@ -32,17 +32,17 @@
       }
     },
     computed: {
-      ...mapGetters({
-        fetchedTags: 'tags/tags'
-      })
+      // ...mapGetters({
+      //   fetchedTags: 'tags/tags'
+      // })
 
     },
-    async mounted() {
-      if (localStorage.getItem("guest") !== null) {
-        await this.$store.dispatch('tags/fetchTags');
-      }
+    // async mounted() {
+    //   if (localStorage.getItem("guest") !== null) {
+    //     await this.$store.dispatch('tags/fetchTags');
+    //   }
       
-    },
+    // },
     methods: {
       
     }
